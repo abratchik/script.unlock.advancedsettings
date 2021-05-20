@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+    <category id="general" label="30000">
+        <setting id="unlock" type="bool" label="30001" help="30002" default="false"/>
+    </category>
+</settings>

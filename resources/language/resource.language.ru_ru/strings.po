@@ -1,0 +1,21 @@
+# Kodi Media Center language file
+# Addon Name: Unlock Kodi Advanced Settings
+# Addon id: script.unlock.advancedsettings
+# Addon Provider: Alex Bratchik
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+
+msgctxt "#30000"
+msgid "Master"
+msgstr "Мастер"
+
+msgctxt "#30001"
+msgid "Unlock Advanced Settings"
+msgstr "Разблокировать дополнительные настройки"
+
+msgctxt "#30002"
+msgid "This will activate hidden settings in the System menu. Restart Kodi after changing this setting."
+msgstr "Установка этого флажка разблокирует дополнительные системные настройки Kodi. После установки перезапустите Kodi."
