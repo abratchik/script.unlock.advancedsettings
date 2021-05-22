@@ -9,13 +9,98 @@ msgstr ""
 "Language: en_GB\n"
 
 msgctxt "#30000"
-msgid "Expert"
-msgstr "Expert"
+msgid "Video Cache"
+msgstr "Video Cache"
 
 msgctxt "#30001"
-msgid "Unlock Advanced Settings"
-msgstr "Unlock Advanced Settings"
+msgid "Buffer Mode"
+msgstr "Buffer Mode"
 
 msgctxt "#30002"
-msgid "This will activate hidden settings in the System menu. Restart Kodi after changing this flag."
-msgstr "This will activate hidden settings in the System menu. Restart Kodi after changing this flag."
+msgid "Buffer all internet filesystems + ftp, webdav"
+msgstr "Buffer all internet filesystems + ftp, webdav"
+
+msgctxt "#30003"
+msgid "Buffer all filesystems"
+msgstr "Buffer all filesystems"
+
+msgctxt "#30004"
+msgid "Only buffer true internet filesystems"
+msgstr "Only buffer true internet filesystems"
+
+msgctxt "#30005"
+msgid "No buffer"
+msgstr "No buffer"
+
+msgctxt "#30006"
+msgid "All network filesystems"
+msgstr "All network filesystems"
+
+msgctxt "#30010"
+msgid "Buffer Size (bytes)"
+msgstr "Buffer Size (bytes)"
+
+msgctxt "#30020"
+msgid "Buffer Read Factor"
+msgstr "Buffer Read Factor"
+
+msgctxt "#30100"
+msgid "Logging"
+msgstr "Logging"
+
+msgctxt "#30101"
+msgid "Logging Level"
+msgstr "Logging Level"
+
+msgctxt "#30102"
+msgid "Normal logging, only logging errors"
+msgstr "Normal logging, only logging errors"
+
+msgctxt "#30103"
+msgid "Debug logging with freemem, fps and cpu usage"
+msgstr "Debug logging with freemem, fps and cpu usage"
+
+msgctxt "#30104"
+msgid "Debug logging with on-screen display"
+msgstr "Debug logging with on-screen display"
+
+msgctxt "#30105"
+msgid "Debug logging with smb, no on-screen display"
+msgstr "Debug logging with smb, no on-screen display"
+
+msgctxt "#30106"
+msgid "No logging"
+msgstr "No logging"
+
+msgctxt "#30110"
+msgid "Hide On-screen Display"
+msgstr "Hide On-screen Display"
+
+msgctxt "#30200"
+msgid "System"
+msgstr "System"
+
+msgctxt "#30206"
+msgid "Show Exit Button"
+msgstr "Show Exit Button"
+
+msgctxt "#30207"
+msgid "Start in Full Screen"
+msgstr "Start in Full Screen"
+
+msgctxt "#30208"
+msgid "Show Splash Screen"
+msgstr "Show Splash Screen"
+
+msgctxt "#30209"
+msgid "CPU Temp Command"
+msgstr "CPU Temp Command"
+
+msgctxt "#30210"
+msgid "GPU Temp Command"
+msgstr "GPU Temp Command"
+
+msgctxt "#30212"
+msgid "Always On Top"
+msgstr "Always On Top"
+
