@@ -11,4 +11,4 @@ from resources.lib.advancedsettings import AdvancedSettings
 if __name__ == '__main__':
     AdvancedSettings = AdvancedSettings()
 
-    AdvancedSettings.edit()
+    AdvancedSettings.unlock()

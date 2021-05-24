@@ -1,5 +1,5 @@
 # coding=utf-8
-# Module: lockpicks
+# Module: advancedsettings
 # Author: Alex Bratchik
 # Created on: 20.05.2021
 # License: GPL v.3 https://www.gnu.org/copyleft/gpl.html
@@ -32,7 +32,7 @@ class AdvancedSettings():
         self.gui_settings = self.load_xml_from_file(self.gui_file)
         self.plg_settings = self.load_xml_from_file(self.plg_file)
 
-    def edit(self):
+    def unlock(self):
 
         self._load()
         self.addon.openSettings(self.id)
