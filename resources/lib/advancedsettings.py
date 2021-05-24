@@ -68,7 +68,7 @@ class AdvancedSettings():
         default = s.attrib['default'] if 'default' in s.attrib else ""
 
         section_tag = cat.attrib['id']
-        section = self.adv_settings if cat.attrib['id'] == "system" else self.adv_settings.find(section_tag)
+        section = self.adv_settings if self._is_root_cat(cat) else self.adv_settings.find(section_tag)
         if section is None:
             section = ET.SubElement(self.adv_settings, section_tag)
 
@@ -93,7 +93,7 @@ class AdvancedSettings():
             return self._get_gui_setting_value(cat, s)
 
         section_tag = cat.attrib['id']
-        section = self.adv_settings if cat.attrib['id'] == "system" else self.adv_settings.find(section_tag)
+        section = self.adv_settings if self._is_root_cat(cat) else self.adv_settings.find(section_tag)
         if section is None:
             xbmc.log("Section %s not found" % section_tag, xbmc.LOGDEBUG)
             return self._get_gui_setting_value(cat, s)
@@ -117,6 +117,10 @@ class AdvancedSettings():
             return setting.text
         else:
             return default
+
+    @staticmethod
+    def _is_root_cat(cat):
+        return 'root' in cat.attrib and cat.attrib['root'] == "true"
 
     @staticmethod
     def _lookup_enum(value, s):

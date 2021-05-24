@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-    <category id="videolibrary" label="30">
-
+    <category id="epg" label="30230">
+        <setting id="updatecheckinterval" label="30231" type="number" default="300" />
+        <setting id="updateemptytagsinterval" label="30232" type="number" default="60" />
+        <setting id="cleanupinterval" label="30233" type="number" default="900" />
+        <setting id="activetagcheckinterval" label="30234" type="number" default="60" />
+        <setting id="retryinterruptedupdateinterval" label="30235" type="number" default="60" />
+        <setting id="displayupdatepopup" label="30236" type="bool" default="true"  />
+        <setting id="displayincrementalupdatepopup" label="30237" type="bool" default="false"  />
     </category>
     <category id="cache" label="30000">
         <setting id="buffermode" label="30001" type="enum" default="0" lvalues="30002|30003|30004|30005|30006" />
         <setting id="memorysize" label="30010" type="number" default="20971520" />
         <setting id="readfactor" label="30020" type="number" default="4" />
     </category>
-    <category id="system" label="30200">
+    <category id="system" label="30200" root="true">
         <setting id="loglevel" label="30101" type="enum" default="0" lvalues="30102|30103|30104|30105|30106">
             <enummap key="4" value="-1" />
         </setting>

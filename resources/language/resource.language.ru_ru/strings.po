@@ -9,8 +9,8 @@ msgstr ""
 "Language: ru_RU\n"
 
 msgctxt "#30000"
-msgid "Video Cache"
-msgstr "Буфер видео"
+msgid "Cache"
+msgstr "Буфер данных"
 
 msgctxt "#30001"
 msgid "Buffer Mode"
@@ -129,5 +129,37 @@ msgid "Skip all frames"
 msgstr "Пропустить все ненужные кадры"
 
 msgctxt "#30226"
-msgid "Не пропускать кадры"
+msgid "None"
 msgstr "Не пропускать кадры"
+
+msgctxt "#30230"
+msgid "EPG"
+msgstr "EPG"
+
+msgctxt "#30231"
+msgid "Update Check Interval"
+msgstr "Update Check Interval"
+
+msgctxt "#30232"
+msgid "Update Empty Tags Interval"
+msgstr "Update Empty Tags Interval"
+
+msgctxt "#30233"
+msgid "Cleanup Interval"
+msgstr "Cleanup Interval"
+
+msgctxt "#30234"
+msgid "Active Checking Interval"
+msgstr "Active Checking Interval"
+
+msgctxt "#30235"
+msgid "Retry Interrupted Update Interval"
+msgstr "Retry Interrupted Update Interval"
+
+msgctxt "#30236"
+msgid "Display Update Popup"
+msgstr "Display Update Popup"
+
+msgctxt "#30237"
+msgid "Display Incremental Update Popup"
+msgstr "Display Incremental Update Popup"
