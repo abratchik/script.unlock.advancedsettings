@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.unlock.advancedsettings"
-       name="Kodi Advanced Settings"
-       version="0.0.2"
+       name="Unlock Kodi Advanced Settings"
+       version="0.0.3"
        provider-name="Alex Bratchik">
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
@@ -12,12 +12,12 @@
     <extension point="xbmc.addon.metadata">
         <news>First release</news>
         <platform>all</platform>
-        <summary lang="en_GB">Edit Kodi advanced settings</summary>
-        <description lang="en_GB">This plugin allows you to edit the advanced system settings of Kodi. Please note that Kodi restart is required so that the advanced settings become in effect.</description>
+        <summary lang="en_GB">Unlock Kodi advanced settings</summary>
+        <description lang="en_GB">This plugin allows you to unlock and edit the hidden advanced system settings of Kodi. Please note that Kodi restart is required so that the advanced settings become in effect.</description>
         <disclaimer lang="en_GB">This plugin was created just fo fun and has no relation to official Kodi software. PLease use at your own risk. Author bears no liability for any changes made by this plugin in your system.</disclaimer>
-        <summary lang="ru_RU">Разблокировка дополнительных настроек в системном меню Kodi</summary>
-        <description lang="ru_RU">Это дополнение Kodi позволяет Вам просмотривать и редактировать дополнительные возможности по настройке Kodi, скрытые от обычных пользователей. После редактирования настроек требуется перезагрузить Kodi.</description>
-        <disclaimer lang="ru_RU">Это дополнение Kodi разработано просто ради развлечения и не относится к официальному ПО Kodi. Испольуйте на свой собственный риск. Автор не несёт отвественности за любые изменения, произведённые при помоши данного плагина в вашей системе.</disclaimer>
+        <summary lang="ru_RU"> Редактирование дополнительных настроек Kodi</summary>
+        <description lang="ru_RU">Это дополнение Kodi позволяет Вам просмотривать и редактировать расширенные настройки Kodi, скрытые от обычных пользователей. После редактирования требуется перезагрузить Kodi.</description>
+        <disclaimer lang="ru_RU">Это дополнение Kodi разработано просто ради развлечения и не относится к официальному ПО Kodi. Испольуйте на свой собственный риск. Автор не несёт отвественности за любые изменения, произведённые при помоши данного плагина в Вашей системе.</disclaimer>
         <platform>all</platform>
         <language>ru en</language>
         <license>GPL-3.0-or-later</license>

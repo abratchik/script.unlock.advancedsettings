@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
+    <category id="videolibrary" label="30">
+
+    </category>
     <category id="cache" label="30000">
         <setting id="buffermode" label="30001" type="enum" default="0" lvalues="30002|30003|30004|30005|30006" />
         <setting id="memorysize" label="30010" type="number" default="20971520" />
         <setting id="readfactor" label="30020" type="number" default="4" />
     </category>
-    <category id="logging" label="30100">
-        <setting id="loglevel" label="30101" type="enum" default="0" lvalues="30102|30103|30104|30105|30106" />
-        <setting id="hide" label="30110" type="bool" default="true" />
-    </category>
     <category id="system" label="30200">
+        <setting id="loglevel" label="30101" type="enum" default="0" lvalues="30102|30103|30104|30105|30106">
+            <enummap key="4" value="-1" />
+        </setting>
+        <setting id="loglevel#hide" label="30110" type="bool" default="true" />
+        <setting type="sep" />
+        <setting id="skiploopfilter" label="30220" type="enum" default="0" lvalues="30221|30222|30223|30224|30225|30226">
+            <enummap key="1" value="8" />
+            <enummap key="2" value="16" />
+            <enummap key="3" value="32" />
+            <enummap key="4" value="48" />
+            <enummap key="5" value="-16" />
+        </setting>
+        <setting type="sep" />
         <setting id="showexitbutton" label="30206" type="bool" default="true"  />
         <setting id="fullscreen" label="30207" type="bool" default="true"  />
         <setting id="splash" label="30208" type="bool" default="true"  />

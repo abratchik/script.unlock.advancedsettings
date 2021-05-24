@@ -73,8 +73,8 @@ msgid "No logging"
 msgstr "No logging"
 
 msgctxt "#30110"
-msgid "Hide On-screen Display"
-msgstr "Hide On-screen Display"
+msgid "Hide 'Enable Debugging' Setting"
+msgstr "Hide 'Enable Debugging' Setting"
 
 msgctxt "#30200"
 msgid "System"
@@ -103,4 +103,35 @@ msgstr "GPU Temp Command"
 msgctxt "#30212"
 msgid "Always On Top"
 msgstr "Always On Top"
+
+msgctxt "#30220"
+msgid "h.264 Decoding"
+msgstr "h.264 Decoding"
+
+msgctxt "#30221"
+msgid "Skip only empty frames (default)"
+msgstr "Skip only empty frames (default)"
+
+msgctxt "#30222"
+msgid "Skip non-reference frames"
+msgstr "Skip non-reference frames"
+
+msgctxt "#30223"
+msgid "Skip bi-dir frames"
+msgstr "Skip bi-dir frames"
+
+msgctxt "#30224"
+msgid "Skip all non-key frames"
+msgstr "Skip all non-key frames"
+
+msgctxt "#30225"
+msgid "Skip all frames"
+msgstr "Skip all frames"
+
+msgctxt "#30226"
+msgid "None"
+msgstr "None"
+
+
+
 

@@ -73,8 +73,8 @@ msgid "No logging"
 msgstr "Отключить"
 
 msgctxt "#30110"
-msgid "Вывод на экран"
-msgstr "Вывод на экран"
+msgid "Hide 'Enable Debugging' Setting"
+msgstr "Спрятать настройку отладки"
 
 msgctxt "#30200"
 msgid "System"
@@ -103,3 +103,31 @@ msgstr "Температура GPU"
 msgctxt "#30212"
 msgid "Always On Top"
 msgstr "Окно Kodi всегда наверху"
+
+msgctxt "#30220"
+msgid "h.264 Decoding"
+msgstr "Обработка h.264"
+
+msgctxt "#30221"
+msgid "Skip only empty frames (default)"
+msgstr "Пропуск только пустых кадров"
+
+msgctxt "#30222"
+msgid "Skip non-reference frames"
+msgstr "Пропустить нереференсные кадры"
+
+msgctxt "#30223"
+msgid "Skip bi-dir frames"
+msgstr "Пропустить двунаправленные кадры"
+
+msgctxt "#30224"
+msgid "Skip all non-key frames"
+msgstr "Пропустить все неключевые кадры"
+
+msgctxt "#30225"
+msgid "Skip all frames"
+msgstr "Пропустить все ненужные кадры"
+
+msgctxt "#30226"
+msgid "Не пропускать кадры"
+msgstr "Не пропускать кадры"
