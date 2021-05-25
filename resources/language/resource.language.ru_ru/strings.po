@@ -134,32 +134,92 @@ msgstr "Не пропускать кадры"
 
 msgctxt "#30230"
 msgid "EPG"
-msgstr "EPG"
+msgstr "Телепрограмма EPG"
 
 msgctxt "#30231"
 msgid "Update Check Interval"
-msgstr "Update Check Interval"
+msgstr "Интервал проверки обновлений"
 
 msgctxt "#30232"
 msgid "Update Empty Tags Interval"
-msgstr "Update Empty Tags Interval"
+msgstr "Интервал обновления пустых меток"
 
 msgctxt "#30233"
 msgid "Cleanup Interval"
-msgstr "Cleanup Interval"
+msgstr "Интервал очистки"
 
 msgctxt "#30234"
 msgid "Active Checking Interval"
-msgstr "Active Checking Interval"
+msgstr "Интервал активной проверки"
 
 msgctxt "#30235"
 msgid "Retry Interrupted Update Interval"
-msgstr "Retry Interrupted Update Interval"
+msgstr "Интервал повторения прерваного запроса"
 
 msgctxt "#30236"
 msgid "Display Update Popup"
-msgstr "Display Update Popup"
+msgstr "Отображать прогресс обновления EPG"
 
 msgctxt "#30237"
 msgid "Display Incremental Update Popup"
-msgstr "Display Incremental Update Popup"
+msgstr "Отображать прогресс докачки EPG"
+
+msgctxt "#30240"
+msgid "PVR"
+msgstr "Настройка PVR"
+
+msgctxt "#30241"
+msgid "Time Correction"
+msgstr "Исправлять все времена на, мин"
+
+msgctxt "#30242"
+msgid "Info Toggle Delay"
+msgstr "Задержка переключения, мсек"
+
+msgctxt "#30243"
+msgid "Channels Icon Auto-scan"
+msgstr "Автосканировать иконки каналов"
+
+msgctxt "#30244"
+msgid "Auto-scan Icon User Set"
+msgstr "Помечать автоскан. иконки как пользовательские"
+
+msgctxt "#30245"
+msgid "Numeric Channel Switch Timeout"
+msgstr "Автом. закрытие переключателя каналов, мсек"
+
+msgctxt "#30250"
+msgid "Sort Channels By"
+msgstr "Сортировать каналы по"
+
+msgctxt "#30251"
+msgid "Name"
+msgstr "Имени"
+
+msgctxt "#30252"
+msgid "Date"
+msgstr "Дате"
+
+msgctxt "#30253"
+msgid "Size"
+msgstr "Размеру файла"
+
+msgctxt "#30254"
+msgid "File"
+msgstr "Имени файла"
+
+msgctxt "#30255"
+msgid "Sort Order"
+msgstr "Порядок сортировки"
+
+msgctxt "#30256"
+msgid "Ascending"
+msgstr "По возрастанию"
+
+msgctxt "#30257"
+msgid "Descending"
+msgstr "По убыванию"
+
+msgctxt "#30260"
+msgid "Video"
+msgstr "Видео"

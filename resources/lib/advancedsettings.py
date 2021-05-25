@@ -28,14 +28,14 @@ class AdvancedSettings():
         self.gui_file = os.path.join(self.ads_path, GUIFNAME)
         self.plg_file = os.path.join(os.path.join(self.path, "resources"), PLGFNAME)
 
-        self.adv_settings = self.load_xml_from_file(self.ads_file)
-        self.gui_settings = self.load_xml_from_file(self.gui_file)
-        self.plg_settings = self.load_xml_from_file(self.plg_file)
+        self.adv_settings = self._load_xml_from_file(self.ads_file)
+        self.gui_settings = self._load_xml_from_file(self.gui_file)
+        self.plg_settings = self._load_xml_from_file(self.plg_file)
 
     def unlock(self):
 
         self._load()
-        self.addon.openSettings(self.id)
+        print("dialog returned %s" % self.addon.openSettings(self.id))
         self._save()
 
     def _load(self):
@@ -43,7 +43,7 @@ class AdvancedSettings():
         for cat in self.plg_settings.findall("category"):
             for s in cat.findall("setting[@id]"):
                 setting_id = s.attrib['id']
-                self.addon.setSetting(setting_id, self._get_adv_setting_value(cat, s))
+                self.addon.setSetting(setting_id, self._read_adv_setting_value(cat, s))
 
     def _save(self):
         if self.adv_settings is None:
@@ -61,7 +61,7 @@ class AdvancedSettings():
             if not (adv_cat is None) and len(adv_cat) == 0:
                 self.adv_settings.remove(adv_cat)
 
-        self.save_pretty_xml(self.adv_settings, self.ads_file)
+        self._save_pretty_xml(self.adv_settings, self.ads_file)
 
     def _save_adv_setting_value(self, cat, s, value):
         xbmc.log("Category %s, setting %s" % (cat.attrib['id'], s.attrib['id']), xbmc.LOGDEBUG)
@@ -73,20 +73,21 @@ class AdvancedSettings():
             section = ET.SubElement(self.adv_settings, section_tag)
 
         setting_tag = s.attrib['id'].partition("#")[0]
-        setting = section.find(setting_tag)
+        setting = self._lookup_element(section, setting_tag)
+        # section.find(setting_tag)
 
         if default == value:
             if not (setting is None):
-                section.remove(setting)
+                self._remove_element(section, setting_tag)
             return
 
         if setting is None:
-            setting = ET.SubElement(section, setting_tag)
+            setting = self._create_element(section, setting_tag)
+            # ET.SubElement(section, setting_tag)
 
-        self._write_setting_value(setting, s,
-                                  self._reverse_lookup_enum(value, s) if s.attrib['type'] == "enum" else value)
+        self._write_setting_value(setting, s, self._encode_value(value, s))
 
-    def _get_adv_setting_value(self, cat, s):
+    def _read_adv_setting_value(self, cat, s):
         xbmc.log("Category %s, setting %s" % (cat.attrib['id'], s.attrib['id']), xbmc.LOGDEBUG)
         if self.adv_settings is None:
             xbmc.log("%s not found" % ADSFNAME, xbmc.LOGDEBUG)
@@ -98,13 +99,10 @@ class AdvancedSettings():
             xbmc.log("Section %s not found" % section_tag, xbmc.LOGDEBUG)
             return self._get_gui_setting_value(cat, s)
 
-        setting = section.find(s.attrib['id'].partition("#")[0])
+        setting = self._lookup_element(section, s.attrib['id'].partition("#")[0])
+        # section.find(s.attrib['id'].partition("#")[0])
         if not (setting is None):
-            value = self._read_setting_value(setting, s)
-            if s.attrib['type'] == "enum":
-                return self._lookup_enum(value, s)
-            else:
-                return value
+            return self._decode_value(self._read_setting_value(setting, s), s)
         else:
             xbmc.log("Setting %s not found" % s.attrib['id'], xbmc.LOGDEBUG)
             return self._get_gui_setting_value(cat, s)
@@ -118,25 +116,64 @@ class AdvancedSettings():
         else:
             return default
 
+    def _lookup_element(self, parent, path):
+        if parent is None:
+            return None
+        pathelem = path.split("/")
+        if len(pathelem) == 1:
+            return parent.find(path)
+        else:
+            return self._lookup_element(parent.find(pathelem[0]), "/".join(pathelem[1:]))
+
+    def _create_element(self, parent, path):
+
+        pathelem = path.split("/")
+        if len(pathelem) == 1:
+            return ET.SubElement(parent, path)
+        else:
+            return self._create_element(ET.SubElement(parent, pathelem[0]), "/".join(pathelem[1:]))
+
+    def _remove_element(self, rootparent, path):
+        elem = self._lookup_element(rootparent, path)
+        if elem is None:
+            return
+        pathelem = path.split("/")
+        l = len(pathelem)
+        if l == 1:
+            rootparent.remove(elem)
+        else:
+            parentpath = "/".join(pathelem[0:l-1])
+            parent = self._lookup_element(rootparent, parentpath)
+            parent.remove(elem)
+            if len(parent) == 0 and len(parent.attrib) == 0:
+                self._remove_element(rootparent, parentpath)
+
+
     @staticmethod
     def _is_root_cat(cat):
         return 'root' in cat.attrib and cat.attrib['root'] == "true"
 
     @staticmethod
-    def _lookup_enum(value, s):
-        enummap = s.find("enummap[@value='%s']" % value)
-        if enummap is None:
-            return value
+    def _decode_value(value, s):
+        if s.attrib['type'] == "enum":
+            enummap = s.find("enummap[@value='%s']" % value)
+            if enummap is None:
+                return value
+            else:
+                return enummap.attrib['key']
         else:
-            return enummap.attrib['key']
+            return value
 
     @staticmethod
-    def _reverse_lookup_enum(key, s):
-        enummap = s.find("enummap[@key='%s']" % key)
-        if enummap is None:
-            return key
+    def _encode_value(value, s):
+        if s.attrib['type'] == "enum":
+            enummap = s.find("enummap[@key='%s']" % value)
+            if enummap is None:
+                return value
+            else:
+                return enummap.attrib['value']
         else:
-            return enummap.attrib['value']
+            return value
 
     @staticmethod
     def _read_setting_value(setting, s):
@@ -166,7 +203,7 @@ class AdvancedSettings():
             child.text = value
 
     @staticmethod
-    def load_xml_from_file(filename):
+    def _load_xml_from_file(filename):
         try:
             tree = ET.parse(filename)
             return tree.getroot()
@@ -174,9 +211,13 @@ class AdvancedSettings():
             return None
 
     @staticmethod
-    def save_pretty_xml(element, output_xml):
+    def _save_pretty_xml(element, output_xml):
         xml_string = minidom.parseString(ET.tostring(element)).toprettyxml()
         xml_string = os.linesep.join(
             [s for s in xml_string.splitlines() if s.strip()])
         with open(output_xml, "w") as file_out:
             file_out.write(xml_string)
+
+
+
+

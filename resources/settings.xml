@@ -1,26 +1,80 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
+    <category id="video" label="30260">
+        <setting id="updatecheckinterval" label="updatecheckinterval" type="number" default="" />
+        <setting id="maxtempo" label="maxtempo" type="number" default="1.5" />
+        <setting id="audiodelayrange" label="audiodelayrange" type="number" default="" />
+        <setting id="usetimeseeking" label="usetimeseeking" type="bool" default="true"  />
+        <setting id="timeseekforwardbig" label="timeseekforwardbig" type="number" default="600" />
+        <setting id="timeseekforwardbig" label="timeseekforwardbig" type="number" default="-600" />
+        <setting id="percentseekforward" label="percentseekforward" type="number" default="2" />
+        <setting id="percentseekbackward" label="percentseekbackward" type="number" default="-2" />
+        <setting id="percentseekforwardbig" label="percentseekforwardbig" type="number" default="10" />
+        <setting id="percentseekbackwardbig" label="percentseekbackwardbig" type="number" default="-10" />
+        <setting id="fullscreenonmoviestart" label="fullscreenonmoviestart" type="bool" default="true"  />
+        <setting id="defaultplayer" label="defaultplayer" type="text" default="" />
+        <setting id="excludefromscan/regexp" label="excludefromscan" type="text" default="" />
+        <setting id="excludefromlisting/regexp" label="excludefromlisting" type="text" default="" />
+        <setting id="playcountminimumpercent" label="playcountminimumpercent" type="number" default="90" />
+        <setting id="ignoresecondsatstart" label="ignoresecondsatstart" type="number" default="180" />
+        <setting id="ignorepercentatend" label="ignorepercentatend" type="number" default="8" />
+        <setting id="vdpauscaling" label="vdpauscaling" type="bool" default="" />
+        <setting id="enablehighqualityhwscalers" label="enablehighqualityhwscalers" type="bool" default="" />
+        <setting id="dxvaallowhqscaling" label="dxvaallowhqscaling" type="bool" default="" />
+        <setting id="ppffmpegdeinterlacing" label="ppffmpegdeinterlacing" type="text" default="" />
+        <setting id="ppffmpegpostprocessing" label="ppffmpegpostprocessing" type="text" default="" />
+        <setting id="autoscalemaxfps" label="autoscalemaxfps" type="number" default="30" />
+        <setting id="adjustrefreshrate/override/fps" label="fps" type="number" default="" />
+        <setting id="adjustrefreshrate/override/fpsmin" label="fpsmin" type="number" default="" />
+        <setting id="adjustrefreshrate/override/fpsmax" label="fpsmax" type="number" default="" />
+        <setting id="adjustrefreshrate/override/refresh" label="refresh" type="number" default="" />
+        <setting id="adjustrefreshrate/override/refreshmin" label="refreshmin" type="number" default="" />
+        <setting id="adjustrefreshrate/override/refreshmax" label="refreshmax" type="number" default="" />
+        <setting id="adjustrefreshrate/fallback/refresh" label="refresh" type="number" default="" />
+        <setting id="adjustrefreshrate/fallback/refreshmin" label="refreshmin" type="number" default="" />
+        <setting id="adjustrefreshrate/fallback/refreshmax" label="refreshmax" type="number" default="" />
+        <setting id="checkdxvacompatibility" label="checkdxvacompatibility" type="bool" default="" />
+        <setting id="useocclusionquery" label="useocclusionquery" type="number" default="-1" />
+        <setting id="fpsdetect" label="fpsdetect" type="number" default="1" />
+    </category>
     <category id="epg" label="30230">
-        <setting id="updatecheckinterval" label="30231" type="number" default="300" />
-        <setting id="updateemptytagsinterval" label="30232" type="number" default="60" />
-        <setting id="cleanupinterval" label="30233" type="number" default="900" />
-        <setting id="activetagcheckinterval" label="30234" type="number" default="60" />
-        <setting id="retryinterruptedupdateinterval" label="30235" type="number" default="60" />
-        <setting id="displayupdatepopup" label="30236" type="bool" default="true"  />
-        <setting id="displayincrementalupdatepopup" label="30237" type="bool" default="false"  />
+        <setting id="updatecheckinterval" label="updatecheckinterval" type="number" default="300" />
+        <setting id="updateemptytagsinterval" label="updateemptytagsinterval" type="number" default="60" />
+        <setting id="cleanupinterval" label="cleanupinterval" type="number" default="900" />
+        <setting id="activetagcheckinterval" label="activetagcheckinterval" type="number" default="60" />
+        <setting id="retryinterruptedupdateinterval" label="retryinterruptedupdateinterval" type="number" default="60" />
+        <setting id="displayupdatepopup" label="displayupdatepopup" type="bool" default="true"  />
+        <setting id="displayincrementalupdatepopup" label="displayincrementalupdatepopup" type="bool" default="false"  />
+    </category>
+    <category id="pvr" label="30240">
+        <setting id="timecorrection" label="timecorrection" type="number" default="0" />
+        <setting id="infotoggleinterval" label="infotoggleinterval" type="number" default="3000" />
+        <setting id="channeliconsautoscan" label="channeliconsautoscan" type="bool" default="true"  />
+        <setting id="autoscaniconsuserset" label="autoscaniconsuserset" type="bool" default="false"  />
+        <setting id="numericchannelswitchtimeout" label="numericchannelswitchtimeout" type="number" default="1000" />
+        <setting id="pvrrecordings/sortmethod" label="sortmethod" type="enum" default="0" lvalues="30251|30252|30253|30254">
+            <enummap key="0" value="1" />
+            <enummap key="1" value="2" />
+            <enummap key="2" value="3" />
+            <enummap key="4" value="4" />
+        </setting>
+        <setting id="pvrrecordings/sortorder" label="sortorder" type="enum" default="0" lvalues="30256|30257">
+            <enummap key="0" value="1" />
+            <enummap key="1" value="2" />
+        </setting>
     </category>
     <category id="cache" label="30000">
-        <setting id="buffermode" label="30001" type="enum" default="0" lvalues="30002|30003|30004|30005|30006" />
-        <setting id="memorysize" label="30010" type="number" default="20971520" />
-        <setting id="readfactor" label="30020" type="number" default="4" />
+        <setting id="buffermode" label="buffermode" type="enum" default="0" lvalues="30002|30003|30004|30005|30006" />
+        <setting id="memorysize" label="memorysize" type="number" default="20971520" />
+        <setting id="readfactor" label="readfactor" type="number" default="4" />
     </category>
     <category id="system" label="30200" root="true">
-        <setting id="loglevel" label="30101" type="enum" default="0" lvalues="30102|30103|30104|30105|30106">
+        <setting id="loglevel" label="loglevel" type="enum" default="0" lvalues="30102|30103|30104|30105|30106">
             <enummap key="4" value="-1" />
         </setting>
         <setting id="loglevel#hide" label="30110" type="bool" default="true" />
         <setting type="sep" />
-        <setting id="skiploopfilter" label="30220" type="enum" default="0" lvalues="30221|30222|30223|30224|30225|30226">
+        <setting id="skiploopfilter" label="skiploopfilter" type="enum" default="0" lvalues="30221|30222|30223|30224|30225|30226">
             <enummap key="1" value="8" />
             <enummap key="2" value="16" />
             <enummap key="3" value="32" />
@@ -28,11 +82,11 @@
             <enummap key="5" value="-16" />
         </setting>
         <setting type="sep" />
-        <setting id="showexitbutton" label="30206" type="bool" default="true"  />
-        <setting id="fullscreen" label="30207" type="bool" default="true"  />
-        <setting id="splash" label="30208" type="bool" default="true"  />
-        <setting id="cputempcommand" label="30209" type="text" default=""  />
-        <setting id="gputempcommand" label="30210" type="text" default=""  />
-        <setting id="alwaysontop" label="30212" type="bool" default="true"  />
+        <setting id="showexitbutton" label="showexitbutton" type="bool" default="true"  />
+        <setting id="fullscreen" label="fullscreen" type="bool" default="true"  />
+        <setting id="splash" label="splash" type="bool" default="true"  />
+        <setting id="cputempcommand" label="cputempcommand" type="text" default=""  />
+        <setting id="gputempcommand" label="gputempcommand" type="text" default=""  />
+        <setting id="alwaysontop" label="alwaysontop" type="bool" default="true"  />
     </category>
 </settings>

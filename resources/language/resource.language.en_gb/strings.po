@@ -164,6 +164,72 @@ msgctxt "#30237"
 msgid "Display Incremental Update Popup"
 msgstr "Display Incremental Update Popup"
 
+msgctxt "#30240"
+msgid "PVR"
+msgstr "PVR"
+
+msgctxt "#30241"
+msgid "Time Correction"
+msgstr "Time Correction"
+
+msgctxt "#30242"
+msgid "Info Toggle Delay"
+msgstr "Info Toggle Delay"
+
+msgctxt "#30243"
+msgid "Channels Icon Auto-scan"
+msgstr "Channels Icon Auto-scan"
+
+msgctxt "#30244"
+msgid "Auto-scan Icon User Set"
+msgstr "Auto-scan Icon User Set"
+
+msgctxt "#30245"
+msgid "Numeric Channel Switch Timeout"
+msgstr "Numeric Channel Switch Timeout"
+
+msgctxt "#30250"
+msgid "Sort Channels By"
+msgstr "Sort Channels By"
+
+msgctxt "#30251"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "#30252"
+msgid "Date"
+msgstr "Date"
+
+msgctxt "#30253"
+msgid "Size"
+msgstr "Size"
+
+msgctxt "#30254"
+msgid "File"
+msgstr "File"
+
+msgctxt "#30255"
+msgid "Sort Order"
+msgstr "Sort Order"
+
+msgctxt "#30256"
+msgid "Ascending"
+msgstr "Ascending"
+
+msgctxt "#30257"
+msgid "Descending"
+msgstr "Descending"
+
+msgctxt "#30260"
+msgid "Video"
+msgstr "Video"
+
+
+
+
+
+
+
 
 
 
