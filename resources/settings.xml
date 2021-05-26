@@ -1,41 +1,92 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
     <category id="video" label="30260">
-        <setting id="updatecheckinterval" label="updatecheckinterval" type="number" default="" />
-        <setting id="maxtempo" label="maxtempo" type="number" default="1.5" />
-        <setting id="audiodelayrange" label="audiodelayrange" type="number" default="" />
+        <setting id="subsdelayrange" label="subsdelayrange" type="number" default="10" />
+        <setting id="maxtempo" label="maxtempo" type="slider" range="1.5,0.1,2.1" default="1.5" option="float"/>
+        <setting id="audiodelayrange" label="audiodelayrange" type="number" default="0" />
         <setting id="usetimeseeking" label="usetimeseeking" type="bool" default="true"  />
         <setting id="timeseekforwardbig" label="timeseekforwardbig" type="number" default="600" />
-        <setting id="timeseekforwardbig" label="timeseekforwardbig" type="number" default="-600" />
+        <setting id="timeseekbackwardbig" label="timeseekbackwardbig" type="number" default="-600" />
         <setting id="percentseekforward" label="percentseekforward" type="number" default="2" />
         <setting id="percentseekbackward" label="percentseekbackward" type="number" default="-2" />
         <setting id="percentseekforwardbig" label="percentseekforwardbig" type="number" default="10" />
         <setting id="percentseekbackwardbig" label="percentseekbackwardbig" type="number" default="-10" />
         <setting id="fullscreenonmoviestart" label="fullscreenonmoviestart" type="bool" default="true"  />
-        <setting id="defaultplayer" label="defaultplayer" type="text" default="" />
-        <setting id="excludefromscan/regexp" label="excludefromscan" type="text" default="" />
-        <setting id="excludefromlisting/regexp" label="excludefromlisting" type="text" default="" />
+        <setting id="defaultplayer" label="defaultplayer" type="text" default="VideoPlayer" />
+        <setting id="excludefromscan/regexp" label="excludefromscan (regexp)" type="text" default="" />
+        <setting id="excludetvshowsfromscan/regexp" label="excludetvshowsfromscan (regexp)" type="text" default="" />
+        <setting id="excludefromlisting/regexp" label="excludefromlisting (regexp)" type="text" default="" />
         <setting id="playcountminimumpercent" label="playcountminimumpercent" type="number" default="90" />
         <setting id="ignoresecondsatstart" label="ignoresecondsatstart" type="number" default="180" />
         <setting id="ignorepercentatend" label="ignorepercentatend" type="number" default="8" />
-        <setting id="vdpauscaling" label="vdpauscaling" type="bool" default="" />
-        <setting id="enablehighqualityhwscalers" label="enablehighqualityhwscalers" type="bool" default="" />
-        <setting id="dxvaallowhqscaling" label="dxvaallowhqscaling" type="bool" default="" />
+        <setting id="vdpauscaling" label="vdpauscaling" type="bool" default="false" />
+        <setting id="enablehighqualityhwscalers" label="enablehighqualityhwscalers" type="bool" default="false" />
+        <setting id="dxvaallowhqscaling" label="dxvaallowhqscaling" type="bool" default="false" />
         <setting id="ppffmpegdeinterlacing" label="ppffmpegdeinterlacing" type="text" default="" />
         <setting id="ppffmpegpostprocessing" label="ppffmpegpostprocessing" type="text" default="" />
         <setting id="autoscalemaxfps" label="autoscalemaxfps" type="number" default="30" />
-        <setting id="adjustrefreshrate/override/fps" label="fps" type="number" default="" />
-        <setting id="adjustrefreshrate/override/fpsmin" label="fpsmin" type="number" default="" />
-        <setting id="adjustrefreshrate/override/fpsmax" label="fpsmax" type="number" default="" />
-        <setting id="adjustrefreshrate/override/refresh" label="refresh" type="number" default="" />
-        <setting id="adjustrefreshrate/override/refreshmin" label="refreshmin" type="number" default="" />
-        <setting id="adjustrefreshrate/override/refreshmax" label="refreshmax" type="number" default="" />
-        <setting id="adjustrefreshrate/fallback/refresh" label="refresh" type="number" default="" />
-        <setting id="adjustrefreshrate/fallback/refreshmin" label="refreshmin" type="number" default="" />
-        <setting id="adjustrefreshrate/fallback/refreshmax" label="refreshmax" type="number" default="" />
-        <setting id="checkdxvacompatibility" label="checkdxvacompatibility" type="bool" default="" />
+        <setting type="sep" label="30265" />
+        <setting id="adjustrefreshrate/override/fps" label="override - fps" type="slider" range="23.966,0.001,23.986" default="23.976" option="float"/>
+        <setting id="adjustrefreshrate/override/refresh" label="override - refresh" type="number" default="60" />
+        <setting type="sep" label="30270 "/>
+        <setting id="adjustrefreshrate/fallback/refresh" label="fallback - refresh" type="number" default="50" />
+        <setting type="sep" />
+        <setting id="checkdxvacompatibility" label="checkdxvacompatibility" type="bool" default="false" />
         <setting id="useocclusionquery" label="useocclusionquery" type="number" default="-1" />
         <setting id="fpsdetect" label="fpsdetect" type="number" default="1" />
+        <setting id="cleandatetime" label="cleandatetime (regexp)" type="text" default="" />
+        <setting id="cleanstrings/regexp" label="cleanstrings (regexp)" type="text" default="" />
+    </category>
+    <category id="videolibrary" label="30500" root="true">
+        <setting id="videoextensions/add" label="videoextensions - add" type="text" default="" />
+        <setting id="videoextensions/remove" label="videoextensions - remove" type="text" default="" />
+        <setting type="sep"/>
+        <setting id="videolibrary/allitemsonbottom" label="allitemsonbottom" type="bool" default="false" />
+        <setting id="videolibrary/cleanonupdate" label="cleanonupdate" type="bool" default="false" />
+        <setting id="videolibrary/usefasthash" label="usefasthash" type="bool" default="true"  />
+        <setting id="videolibrary/recentlyaddeditems" label="recentlyaddeditems" type="number" default="25" />
+        <setting id="videolibrary/itemseparator" label="itemseparator" type="text" default=" / " />
+        <setting id="videolibrary/exportautothumbs" label="exportautothumbs" type="bool" default="false" />
+        <setting id="videolibrary/importwatchedstate" label="importwatchedstate" type="bool" default="false" />
+        <setting id="videolibrary/importresumepoint" label="importresumepoint" type="bool" default="false" />
+        <setting id="videolibrary/dateadded" label="dateadded" type="enum" default="1" values="0|1|2" />
+        <setting type="sep" label="twshowmatching"/>
+        <setting id="tvshowmatching/regexp$0" label="1. tvshowmatching" type="text" default="" />
+        <setting id="tvshowmatching/regexp$1" label="2. tvshowmatching" type="text" default="" />
+        <setting id="tvshowmatching/regexp$2" label="3. tvshowmatching" type="text" default="" />
+        <setting id="tvshowmatching/regexp$3" label="4. tvshowmatching" type="text" default="" />
+        <setting id="tvshowmatching/regexp$4" label="5. tvshowmatching" type="text" default="" />
+        <setting id="tvshowmatching/regexp$5" label="6. tvshowmatching" type="text" default="" />
+        <setting id="tvshowmatching/regexp$6" label="7. tvshowmatching" type="text" default="" />
+        <setting id="tvshowmatching/regexp$7" label="8. tvshowmatching" type="text" default="" />
+        <setting type="sep" label="moviestacking"/>
+        <setting id="moviestacking/regexp$0" label="1. moviestacking" type="text" default="" />
+        <setting id="moviestacking/regexp$1" label="2. moviestacking" type="text" default="" />
+        <setting id="moviestacking/regexp$2" label="3. moviestacking" type="text" default="" />
+        <setting id="moviestacking/regexp$3" label="4. moviestacking" type="text" default="" />
+        <setting type="sep" label="folderstacking"/>
+        <setting id="folderstacking/regexp$0" label="1. folderstacking" type="text" default="" />
+        <setting id="folderstacking/regexp$1" label="2. folderstacking" type="text" default="" />
+        <setting id="folderstacking/regexp$2" label="3. folderstacking" type="text" default="" />
+        <setting id="folderstacking/regexp$3" label="4. folderstacking" type="text" default="" />
+    </category>
+    <category id="audio" label="30360">
+        <setting id="headroom" label="headroom" type="slider" default="0" range="0,6,12" option="int" />
+        <setting id="defaultplayer" label="defaultplayer" type="text" default="VideoPlayer"/>
+        <setting id="excludefromscan/regexp" label="excludefromscan (regexp)" type="text" default="" />
+        <setting id="excludefromlisting/regexp" label="excludefromlisting (regexp)" type="text" default="" />
+        <setting id="ac3downmixgain" label="ac3downmixgain" type="number" default="12" />
+        <setting id="usetimeseeking" label="usetimeseeking" type="bool" default="true"  />
+        <setting id="timeseekforwardbig" label="timeseekforwardbig" type="number" default="600" />
+        <setting id="timeseekbackwardbig" label="timeseekbackwardbig" type="number" default="-600" />
+        <setting id="playcountminimumpercent" label="playcountminimumpercent" type="number" default="90" />
+        <setting id="applydrc" label="applydrc" type="enum" default="0" values="-1.0|0.0|1.0">
+            <enummap key="0" value="-1.0" />
+            <enummap key="1" value="0.0" />
+            <enummap key="2" value="1.0" />
+        </setting>
+        <setting id="limiterhold" label="limiterhold" type="number" default="0" />
+        <setting id="limiterrelease" label="limiterrelease" type="number" default="0" />
     </category>
     <category id="epg" label="30230">
         <setting id="updatecheckinterval" label="updatecheckinterval" type="number" default="300" />
@@ -45,6 +96,14 @@
         <setting id="retryinterruptedupdateinterval" label="retryinterruptedupdateinterval" type="number" default="60" />
         <setting id="displayupdatepopup" label="displayupdatepopup" type="bool" default="true"  />
         <setting id="displayincrementalupdatepopup" label="displayincrementalupdatepopup" type="bool" default="false"  />
+    </category>
+    <category id="edl" label="30400">
+        <setting id="mergeshortcommbreaks" label="mergeshortcommbreaks" type="bool" default="false"  />
+        <setting id="maxcommbreaklength" label="maxcommbreaklength" type="number" default="250" />
+        <setting id="mincommbreaklength" label="mincommbreaklength" type="number" default="90" />
+        <setting id="maxcommbreakgap" label="maxcommbreakgap" type="number" default="120" />
+        <setting id="commbreakautowait" label="commbreakautowait" type="number" default="0" />
+        <setting id="commbreakautowind" label="commbreakautowind" type="number" default="0" />
     </category>
     <category id="pvr" label="30240">
         <setting id="timecorrection" label="timecorrection" type="number" default="0" />
@@ -68,12 +127,29 @@
         <setting id="memorysize" label="memorysize" type="number" default="20971520" />
         <setting id="readfactor" label="readfactor" type="number" default="4" />
     </category>
+    <category id="network" label="30600" root="true">
+        <setting id="ftp/remotethumbs" label="ftp - remotethumbs" type="bool" default="true" />
+        <setting id="samba/doscodepage" label="samba - doscodepage" type="text" default="" />
+        <setting id="samba/clienttimeout" label="samba - clienttimeout" type="number" default="10" />
+        <setting id="samba/statfiles" label="samba - statfiles" type="bool" default="true" />
+        <setting id="hosts/entry" label="hosts - ip address" type="ipaddress" default="0.0.0.0" />
+        <setting id="hosts/entry#name" label="hosts - hostname" type="text" default="" />
+        <setting id="network/curlclienttimeout" label="network - curlclienttimeout" type="number" default="10" />
+        <setting id="network/curllowspeedtime" label="network - curllowspeedtime" type="number" default="20" />
+        <setting id="network/curlretries" label="network - curlretries" type="number" default="2" />
+        <setting id="network/httpproxyusername" label="network - httpproxyusername" type="text" default="" />
+        <setting id="network/httpproxypassword" label="network - httpproxypassword" type="text" default="" option="hidden" />
+        <setting id="network/disableipv6" label="network - disableipv6" type="bool" default="false" />
+        <setting id="network/disablehttp2" label="network - disablehttp2" type="bool" default="false" />
+        <setting id="network/nfstimeout" label="network - nfstimeout" type="number" default="5" />
+        <setting id="network/catrustfile" label="network - catrustfile" type="text" default="" />
+    </category>
     <category id="system" label="30200" root="true">
         <setting id="loglevel" label="loglevel" type="enum" default="0" lvalues="30102|30103|30104|30105|30106">
             <enummap key="4" value="-1" />
         </setting>
         <setting id="loglevel#hide" label="30110" type="bool" default="true" />
-        <setting type="sep" />
+        <setting type="sep" label="30260"/>
         <setting id="skiploopfilter" label="skiploopfilter" type="enum" default="0" lvalues="30221|30222|30223|30224|30225|30226">
             <enummap key="1" value="8" />
             <enummap key="2" value="16" />
@@ -81,12 +157,36 @@
             <enummap key="4" value="48" />
             <enummap key="5" value="-16" />
         </setting>
+        <setting id="forcedswaptime" label="forcedswaptime" type="number" default="0" />
+        <setting id="videoscanner/ignoreerrors" label="videoscanner - ignoreerrors" type="bool" default="true"  />
         <setting type="sep" />
+        <setting id="remotedelay" label="remotedelay" type="number" default="3" />
+        <setting id="enablemultimediakeys" label="enablemultimediakeys" type="bool" default="false"  />
+        <setting id="scanirserver" label="scanirserver" type="bool" default="true"  />
+        <setting type="sep" />
+        <setting id="restrictcapsmask" label="restrictcapsmask" type="number" default="0" />
+        <setting id="gui/algorithmdirtyregions" label="gui - algorithmdirtyregions" type="enum" default="3" values="0|1|2|3"/>
+        <setting id="gui/visualizedirtyregions" label="gui - visualizedirtyregions" type="bool" default="false"  />
+        <setting id="gui/smartredraw" label="gui - smartredraw" type="bool" default="false"  />
         <setting id="showexitbutton" label="showexitbutton" type="bool" default="true"  />
         <setting id="fullscreen" label="fullscreen" type="bool" default="true"  />
         <setting id="splash" label="splash" type="bool" default="true"  />
-        <setting id="cputempcommand" label="cputempcommand" type="text" default=""  />
-        <setting id="gputempcommand" label="gputempcommand" type="text" default=""  />
-        <setting id="alwaysontop" label="alwaysontop" type="bool" default="true"  />
+        <setting id="cputempcommand" label="cputempcommand" type="text" default="" />
+        <setting id="gputempcommand" label="gputempcommand" type="text" default="" />
+        <setting id="glrectanglehack" label="glrectanglehack" type="text" default="" />
+        <setting id="alwaysontop" label="alwaysontop" type="text" default="" />
+        <setting id="minimizetotray" label="minimizetotray" type="bool" default="false" />
+        <setting type="sep" label="30261"/>
+        <setting id="videoextensions/add" label="videoextensions - add" type="text" default="" />
+        <setting id="videoextensions/remove" label="videoextensions - remove" type="text" default="" />
+        <setting type="sep" label="30262"/>
+        <setting id="discstubextensions/add" label="discstubextensions - add" type="text" default="" />
+        <setting id="discstubextensions/remove" label="discstubextensions - remove" type="text" default="" />
+        <setting type="sep" label="30228"/>
+        <setting id="jsonrpc/compactoutput" label="jsonrpc - compactoutput" type="bool" default="false" />
+        <setting id="jsonrpc/tcpport" label="jsonrpc - tcpport" type="number" default="9999" />
+        <setting type="sep"/>
+        <setting id="tvmultipartmatching" label="tvmultipartmatching (regexp)" type="text" default="" />
+        <setting id="trailermatching/regexp" label="trailermatching (regexp)" type="text" default="" />
     </category>
 </settings>

@@ -12,10 +12,6 @@ msgctxt "#30000"
 msgid "Cache"
 msgstr "Буфер данных"
 
-msgctxt "#30001"
-msgid "Buffer Mode"
-msgstr "Режим буфера"
-
 msgctxt "#30002"
 msgid "Buffer all internet filesystems + ftp, webdav"
 msgstr "Буферизовать все интернет протоколы"
@@ -35,14 +31,6 @@ msgstr "Отключить буфер"
 msgctxt "#30006"
 msgid "All network filesystems"
 msgstr "Буферизовать все сетевые файловые системы"
-
-msgctxt "#30010"
-msgid "Buffer Size (bytes)"
-msgstr "Размер буфера (байт)"
-
-msgctxt "#30020"
-msgid "Buffer Read Factor"
-msgstr "Множитель заполнения буфера"
 
 msgctxt "#30100"
 msgid "Logging"
@@ -80,34 +68,6 @@ msgctxt "#30200"
 msgid "System"
 msgstr "Система"
 
-msgctxt "#30206"
-msgid "Show Exit Button"
-msgstr "Показывать кнопку выхода"
-
-msgctxt "#30207"
-msgid "Start in Full Screen"
-msgstr "Запускать в полном экране"
-
-msgctxt "#30208"
-msgid "Show Splash Screen"
-msgstr "Показыать заставку при запуске"
-
-msgctxt "#30209"
-msgid "CPU Temp Command"
-msgstr "Температура CPU"
-
-msgctxt "#30210"
-msgid "GPU Temp Command"
-msgstr "Температура GPU"
-
-msgctxt "#30212"
-msgid "Always On Top"
-msgstr "Окно Kodi всегда наверху"
-
-msgctxt "#30220"
-msgid "h.264 Decoding"
-msgstr "Обработка h.264"
-
 msgctxt "#30221"
 msgid "Skip only empty frames (default)"
 msgstr "Пропуск только пустых кадров"
@@ -132,81 +92,33 @@ msgctxt "#30226"
 msgid "None"
 msgstr "Не пропускать кадры"
 
+msgctxt "#30228"
+msgid "JSON RPC"
+msgstr "JSON RPC"
+
 msgctxt "#30230"
 msgid "EPG"
 msgstr "Телепрограмма EPG"
-
-msgctxt "#30231"
-msgid "Update Check Interval"
-msgstr "Интервал проверки обновлений"
-
-msgctxt "#30232"
-msgid "Update Empty Tags Interval"
-msgstr "Интервал обновления пустых меток"
-
-msgctxt "#30233"
-msgid "Cleanup Interval"
-msgstr "Интервал очистки"
-
-msgctxt "#30234"
-msgid "Active Checking Interval"
-msgstr "Интервал активной проверки"
-
-msgctxt "#30235"
-msgid "Retry Interrupted Update Interval"
-msgstr "Интервал повторения прерваного запроса"
-
-msgctxt "#30236"
-msgid "Display Update Popup"
-msgstr "Отображать прогресс обновления EPG"
-
-msgctxt "#30237"
-msgid "Display Incremental Update Popup"
-msgstr "Отображать прогресс докачки EPG"
 
 msgctxt "#30240"
 msgid "PVR"
 msgstr "Настройка PVR"
 
-msgctxt "#30241"
-msgid "Time Correction"
-msgstr "Исправлять все времена на, мин"
-
-msgctxt "#30242"
-msgid "Info Toggle Delay"
-msgstr "Задержка переключения, мсек"
-
-msgctxt "#30243"
-msgid "Channels Icon Auto-scan"
-msgstr "Автосканировать иконки каналов"
-
-msgctxt "#30244"
-msgid "Auto-scan Icon User Set"
-msgstr "Помечать автоскан. иконки как пользовательские"
-
-msgctxt "#30245"
-msgid "Numeric Channel Switch Timeout"
-msgstr "Автом. закрытие переключателя каналов, мсек"
-
-msgctxt "#30250"
-msgid "Sort Channels By"
-msgstr "Сортировать каналы по"
-
 msgctxt "#30251"
 msgid "Name"
-msgstr "Имени"
+msgstr "по имени"
 
 msgctxt "#30252"
 msgid "Date"
-msgstr "Дате"
+msgstr "по дате"
 
 msgctxt "#30253"
 msgid "Size"
-msgstr "Размеру файла"
+msgstr "по размеру файла"
 
 msgctxt "#30254"
 msgid "File"
-msgstr "Имени файла"
+msgstr "по имени файла"
 
 msgctxt "#30255"
 msgid "Sort Order"
@@ -214,12 +126,44 @@ msgstr "Порядок сортировки"
 
 msgctxt "#30256"
 msgid "Ascending"
-msgstr "По возрастанию"
+msgstr "по возрастанию"
 
 msgctxt "#30257"
 msgid "Descending"
-msgstr "По убыванию"
+msgstr "по убыванию"
 
 msgctxt "#30260"
 msgid "Video"
 msgstr "Видео"
+
+msgctxt "#30261"
+msgid "Расширения видеофайлов"
+msgstr "Расширения видеофайлов"
+
+msgctxt "#30262"
+msgid "Расширения файлов дисков"
+msgstr "Расширения файлов дисков"
+
+msgctxt "#30265"
+msgid "Adjust Refresh Rate - Override"
+msgstr "Настройка частоты обновления экрана"
+
+msgctxt "#30270"
+msgid "Adjust Refresh Rate - Fallback"
+msgstr "Настройка частоты обновления экрана - по умолчанию"
+
+msgctxt "#30360"
+msgid "Audio"
+msgstr "Аудио"
+
+msgctxt "#30400"
+msgid "EDL"
+msgstr "Удаление рекламы"
+
+msgctxt "#30500"
+msgid "Video Library"
+msgstr "Видеоколлекция"
+
+msgctxt "#30600"
+msgid "Network"
+msgstr "Настройки сети"

@@ -25,11 +25,11 @@ class AdvancedSettings():
         self.data_path = xbmcvfs.translatePath(self.addon.getAddonInfo('profile'))
 
         self.ads_file = os.path.join(self.ads_path, ADSFNAME)
-        self.gui_file = os.path.join(self.ads_path, GUIFNAME)
+        # self.gui_file = os.path.join(self.ads_path, GUIFNAME)
         self.plg_file = os.path.join(os.path.join(self.path, "resources"), PLGFNAME)
 
         self.adv_settings = self._load_xml_from_file(self.ads_file)
-        self.gui_settings = self._load_xml_from_file(self.gui_file)
+        # self.gui_settings = self._load_xml_from_file(self.gui_file)
         self.plg_settings = self._load_xml_from_file(self.plg_file)
 
     def unlock(self):
@@ -61,6 +61,7 @@ class AdvancedSettings():
             if not (adv_cat is None) and len(adv_cat) == 0:
                 self.adv_settings.remove(adv_cat)
 
+        self._backup_file(self.ads_file)
         self._save_pretty_xml(self.adv_settings, self.ads_file)
 
     def _save_adv_setting_value(self, cat, s, value):
@@ -78,12 +79,21 @@ class AdvancedSettings():
 
         if default == value:
             if not (setting is None):
-                self._remove_element(section, setting_tag)
+                if "#" in s.attrib['id']:
+                    attrib = s.attrib['id'].partition("#")[2]
+                    if attrib in setting.attrib:
+                        setting.attrib.pop(attrib)
+                    if setting.text == "":
+                        self._remove_element(section, setting_tag)
+                else:
+                    if len(setting.attrib) == 0:
+                        self._remove_element(section, setting_tag)
             return
 
         if setting is None:
             setting = self._create_element(section, setting_tag)
             # ET.SubElement(section, setting_tag)
+
 
         self._write_setting_value(setting, s, self._encode_value(value, s))
 
@@ -108,20 +118,29 @@ class AdvancedSettings():
             return self._get_gui_setting_value(cat, s)
 
     def _get_gui_setting_value(self, cat, s):
-        setting_id = "%s.%s" % (cat.attrib['id'], s.attrib['id'])
+        # setting_id = "%s.%s" % (cat.attrib['id'], s.attrib['id'])
         default = s.attrib['default'] if 'default' in s.attrib else ""
-        setting = self.gui_settings.find(".//setting[@id='%s']" % setting_id)
-        if not (setting is None):
-            return setting.text
-        else:
-            return default
+        # setting = self.gui_settings.find(".//setting[@id='%s']" % setting_id)
+        #if not (setting is None):
+        #    return setting.text
+        # else:
+        return default
 
     def _lookup_element(self, parent, path):
         if parent is None:
             return None
         pathelem = path.split("/")
         if len(pathelem) == 1:
-            return parent.find(path)
+            if "$" in path:
+                name_index = path.split("$")
+                elements = parent.findall(name_index[0])
+                index = int(name_index[1])
+                if index < len(elements):
+                    return elements[index]
+                else:
+                    return None
+            else:
+                return parent.find(path)
         else:
             return self._lookup_element(parent.find(pathelem[0]), "/".join(pathelem[1:]))
 
@@ -129,9 +148,17 @@ class AdvancedSettings():
 
         pathelem = path.split("/")
         if len(pathelem) == 1:
-            return ET.SubElement(parent, path)
+            if "$" in path:
+                name_index = path.split("$")
+                xbmc.log("Create element %s.%s" % (parent.tag, name_index[0]))
+                return ET.SubElement(parent, name_index[0])
+            else:
+                return ET.SubElement(parent, path)
         else:
-            return self._create_element(ET.SubElement(parent, pathelem[0]), "/".join(pathelem[1:]))
+            subparent = parent.find(pathelem[0])
+            if subparent is None:
+                subparent = ET.SubElement(parent, pathelem[0])
+            return self._create_element(subparent, "/".join(pathelem[1:]))
 
     def _remove_element(self, rootparent, path):
         elem = self._lookup_element(rootparent, path)
@@ -144,7 +171,15 @@ class AdvancedSettings():
         else:
             parentpath = "/".join(pathelem[0:l-1])
             parent = self._lookup_element(rootparent, parentpath)
-            parent.remove(elem)
+            if "$" in pathelem[l-1]:
+                name_index = pathelem[l-1].split("$")
+                index = int(name_index[1])
+                # xbmc.log("Remove teg %s.%s-%s" % (parent.tag, name_index[0], name_index[1]), xbmc.LOGDEBUG)
+                if index < len(parent):
+                    del parent[index:]
+                # xbmc.log("new num of children %s" % len(parent), xbmc.LOGDEBUG)
+            else:
+                parent.remove(elem)
             if len(parent) == 0 and len(parent.attrib) == 0:
                 self._remove_element(rootparent, parentpath)
 
@@ -219,5 +254,13 @@ class AdvancedSettings():
             file_out.write(xml_string)
 
 
-
+    @staticmethod
+    def _backup_file(fpath):
+        if xbmcvfs.exists(fpath):
+            fpathbak = "%s.bak" % fpath
+            if xbmcvfs.exists(fpathbak):
+                xbmcvfs.delete(fpathbak)
+            return xbmcvfs.copy(fpath, fpathbak)
+        else:
+            return False
 

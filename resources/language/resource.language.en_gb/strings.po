@@ -12,10 +12,6 @@ msgctxt "#30000"
 msgid "Cache"
 msgstr "Cache"
 
-msgctxt "#30001"
-msgid "Buffer Mode"
-msgstr "Buffer Mode"
-
 msgctxt "#30002"
 msgid "Buffer all internet filesystems + ftp, webdav"
 msgstr "Buffer all internet filesystems + ftp, webdav"
@@ -39,10 +35,6 @@ msgstr "All network filesystems"
 msgctxt "#30010"
 msgid "Buffer Size (bytes)"
 msgstr "Buffer Size (bytes)"
-
-msgctxt "#30020"
-msgid "Buffer Read Factor"
-msgstr "Buffer Read Factor"
 
 msgctxt "#30100"
 msgid "Logging"
@@ -80,34 +72,6 @@ msgctxt "#30200"
 msgid "System"
 msgstr "System"
 
-msgctxt "#30206"
-msgid "Show Exit Button"
-msgstr "Show Exit Button"
-
-msgctxt "#30207"
-msgid "Start in Full Screen"
-msgstr "Start in Full Screen"
-
-msgctxt "#30208"
-msgid "Show Splash Screen"
-msgstr "Show Splash Screen"
-
-msgctxt "#30209"
-msgid "CPU Temp Command"
-msgstr "CPU Temp Command"
-
-msgctxt "#30210"
-msgid "GPU Temp Command"
-msgstr "GPU Temp Command"
-
-msgctxt "#30212"
-msgid "Always On Top"
-msgstr "Always On Top"
-
-msgctxt "#30220"
-msgid "h.264 Decoding"
-msgstr "h.264 Decoding"
-
 msgctxt "#30221"
 msgid "Skip only empty frames (default)"
 msgstr "Skip only empty frames (default)"
@@ -132,65 +96,17 @@ msgctxt "#30226"
 msgid "None"
 msgstr "None"
 
+msgctxt "#30228"
+msgid "JSON RPC"
+msgstr "JSON RPC"
+
 msgctxt "#30230"
 msgid "EPG"
 msgstr "EPG"
 
-msgctxt "#30231"
-msgid "Update Check Interval"
-msgstr "Update Check Interval"
-
-msgctxt "#30232"
-msgid "Update Empty Tags Interval"
-msgstr "Update Empty Tags Interval"
-
-msgctxt "#30233"
-msgid "Cleanup Interval"
-msgstr "Cleanup Interval"
-
-msgctxt "#30234"
-msgid "Active Checking Interval"
-msgstr "Active Checking Interval"
-
-msgctxt "#30235"
-msgid "Retry Interrupted Update Interval"
-msgstr "Retry Interrupted Update Interval"
-
-msgctxt "#30236"
-msgid "Display Update Popup"
-msgstr "Display Update Popup"
-
-msgctxt "#30237"
-msgid "Display Incremental Update Popup"
-msgstr "Display Incremental Update Popup"
-
 msgctxt "#30240"
 msgid "PVR"
 msgstr "PVR"
-
-msgctxt "#30241"
-msgid "Time Correction"
-msgstr "Time Correction"
-
-msgctxt "#30242"
-msgid "Info Toggle Delay"
-msgstr "Info Toggle Delay"
-
-msgctxt "#30243"
-msgid "Channels Icon Auto-scan"
-msgstr "Channels Icon Auto-scan"
-
-msgctxt "#30244"
-msgid "Auto-scan Icon User Set"
-msgstr "Auto-scan Icon User Set"
-
-msgctxt "#30245"
-msgid "Numeric Channel Switch Timeout"
-msgstr "Numeric Channel Switch Timeout"
-
-msgctxt "#30250"
-msgid "Sort Channels By"
-msgstr "Sort Channels By"
 
 msgctxt "#30251"
 msgid "Name"
@@ -208,10 +124,6 @@ msgctxt "#30254"
 msgid "File"
 msgstr "File"
 
-msgctxt "#30255"
-msgid "Sort Order"
-msgstr "Sort Order"
-
 msgctxt "#30256"
 msgid "Ascending"
 msgstr "Ascending"
@@ -224,13 +136,34 @@ msgctxt "#30260"
 msgid "Video"
 msgstr "Video"
 
+msgctxt "#30261"
+msgid "Video Extensions"
+msgstr "Video Extensions"
 
+msgctxt "#30262"
+msgid "Disk Stub Extensions"
+msgstr "Disk Stub Extensions"
 
+msgctxt "#30265"
+msgid "Adjust Refresh Rate - Override"
+msgstr "Adjust Refresh Rate - Override"
 
+msgctxt "#30270"
+msgid "Adjust Refresh Rate - Fallback"
+msgstr "Adjust Refresh Rate - Fallback"
 
+msgctxt "#30360"
+msgid "Audio"
+msgstr "Audio"
 
+msgctxt "#30400"
+msgid "EDL"
+msgstr "EDL"
 
+msgctxt "#30500"
+msgid "Video Library"
+msgstr "Video Library"
 
-
-
-
+msgctxt "#30600"
+msgid "Network"
+msgstr "Network"
