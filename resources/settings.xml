@@ -13,9 +13,6 @@
         <setting id="percentseekbackwardbig" label="percentseekbackwardbig" type="number" default="-10" />
         <setting id="fullscreenonmoviestart" label="fullscreenonmoviestart" type="bool" default="true"  />
         <setting id="defaultplayer" label="defaultplayer" type="text" default="VideoPlayer" />
-        <setting id="excludefromscan/regexp" label="excludefromscan (regexp)" type="text" default="" />
-        <setting id="excludetvshowsfromscan/regexp" label="excludetvshowsfromscan (regexp)" type="text" default="" />
-        <setting id="excludefromlisting/regexp" label="excludefromlisting (regexp)" type="text" default="" />
         <setting id="playcountminimumpercent" label="playcountminimumpercent" type="number" default="90" />
         <setting id="ignoresecondsatstart" label="ignoresecondsatstart" type="number" default="180" />
         <setting id="ignorepercentatend" label="ignorepercentatend" type="number" default="8" />
@@ -34,10 +31,14 @@
         <setting id="checkdxvacompatibility" label="checkdxvacompatibility" type="bool" default="false" />
         <setting id="useocclusionquery" label="useocclusionquery" type="number" default="-1" />
         <setting id="fpsdetect" label="fpsdetect" type="number" default="1" />
-        <setting id="cleandatetime" label="cleandatetime (regexp)" type="text" default="" />
-        <setting id="cleanstrings/regexp" label="cleanstrings (regexp)" type="text" default="" />
     </category>
     <category id="videolibrary" label="30500" root="true">
+        <setting id="playlistasfolders" label="playlistasfolders" type="bool" default="false" />
+        <setting id="playlistretries" label="playlistretries" type="number" default="100" />
+        <setting id="playlisttimeout" label="playlisttimeout" type="number" default="20" />
+        <setting id="<sorttokens>/token" label="sorttokens - token" type="text" default="" />
+        <setting id="<sorttokens>/token#separators" label="sorttokens - separators" type="text" default="" />
+        <setting type="sep"/>
         <setting id="videoextensions/add" label="videoextensions - add" type="text" default="" />
         <setting id="videoextensions/remove" label="videoextensions - remove" type="text" default="" />
         <setting type="sep"/>
@@ -50,25 +51,57 @@
         <setting id="videolibrary/importwatchedstate" label="importwatchedstate" type="bool" default="false" />
         <setting id="videolibrary/importresumepoint" label="importresumepoint" type="bool" default="false" />
         <setting id="videolibrary/dateadded" label="dateadded" type="enum" default="1" values="0|1|2" />
-        <setting type="sep" label="twshowmatching"/>
-        <setting id="tvshowmatching/regexp$0" label="1. tvshowmatching" type="text" default="" />
-        <setting id="tvshowmatching/regexp$1" label="2. tvshowmatching" type="text" default="" />
-        <setting id="tvshowmatching/regexp$2" label="3. tvshowmatching" type="text" default="" />
-        <setting id="tvshowmatching/regexp$3" label="4. tvshowmatching" type="text" default="" />
-        <setting id="tvshowmatching/regexp$4" label="5. tvshowmatching" type="text" default="" />
-        <setting id="tvshowmatching/regexp$5" label="6. tvshowmatching" type="text" default="" />
-        <setting id="tvshowmatching/regexp$6" label="7. tvshowmatching" type="text" default="" />
-        <setting id="tvshowmatching/regexp$7" label="8. tvshowmatching" type="text" default="" />
-        <setting type="sep" label="moviestacking"/>
-        <setting id="moviestacking/regexp$0" label="1. moviestacking" type="text" default="" />
-        <setting id="moviestacking/regexp$1" label="2. moviestacking" type="text" default="" />
-        <setting id="moviestacking/regexp$2" label="3. moviestacking" type="text" default="" />
-        <setting id="moviestacking/regexp$3" label="4. moviestacking" type="text" default="" />
-        <setting type="sep" label="folderstacking"/>
-        <setting id="folderstacking/regexp$0" label="1. folderstacking" type="text" default="" />
-        <setting id="folderstacking/regexp$1" label="2. folderstacking" type="text" default="" />
-        <setting id="folderstacking/regexp$2" label="3. folderstacking" type="text" default="" />
-        <setting id="folderstacking/regexp$3" label="4. folderstacking" type="text" default="" />
+        <setting type="sep" />
+        <setting id="tvshowmatching#action" label="tvshowmatching" type="enum" default="0" values="|append|prepend">
+            <enummap key="1" value="append" />
+            <enummap key="2" value="prepend" />
+        </setting>
+        <setting id="tvshowmatching/regexp$0" label="1." type="text" default="" />
+        <setting id="tvshowmatching/regexp$1" label="2." type="text" default="" />
+        <setting id="tvshowmatching/regexp$2" label="3." type="text" default="" />
+        <setting id="tvshowmatching/regexp$3" label="4." type="text" default="" />
+        <setting id="tvshowmatching/regexp$4" label="5." type="text" default="" />
+        <setting id="tvshowmatching/regexp$5" label="6." type="text" default="" />
+        <setting id="tvshowmatching/regexp$6" label="7." type="text" default="" />
+        <setting id="tvshowmatching/regexp$7" label="8." type="text" default="" />
+        <setting type="sep" />
+        <setting id="moviestacking#action" label="moviestacking" type="enum" default="0" values="|append|prepend">
+            <enummap key="1" value="append" />
+            <enummap key="2" value="prepend" />
+        </setting>
+        <setting id="moviestacking/regexp$0" label="1." type="text" default="" />
+        <setting id="moviestacking/regexp$1" label="2." type="text" default="" />
+        <setting id="moviestacking/regexp$2" label="3." type="text" default="" />
+        <setting id="moviestacking/regexp$3" label="4." type="text" default="" />
+        <setting type="sep" />
+        <setting id="folderstacking#action" label="folderstacking" type="enum" default="0" values="|append|prepend">
+            <enummap key="1" value="append" />
+            <enummap key="2" value="prepend" />
+        </setting>
+        <setting id="folderstacking/regexp$0" label="1." type="text" default="" />
+        <setting id="folderstacking/regexp$1" label="2." type="text" default="" />
+        <setting id="folderstacking/regexp$2" label="3." type="text" default="" />
+        <setting id="folderstacking/regexp$3" label="4." type="text" default="" />
+        <setting type="sep"/>
+        <setting id="tvmultipartmatching" label="tvmultipartmatching (regexp)" type="text" default="" />
+        <setting id="trailermatching/regexp" label="trailermatching (regexp)" type="text" default="" />
+        <setting type="sep" />
+        <setting id="videoextensions/add" label="videoextensions - add" type="text" default="" />
+        <setting id="videoextensions/remove" label="videoextensions - remove" type="text" default="" />
+        <setting type="sep" />
+        <setting id="discstubextensions/add" label="discstubextensions - add" type="text" default="" />
+        <setting id="discstubextensions/remove" label="discstubextensions - remove" type="text" default="" />
+        <setting id="video/cleandatetime" label="cleandatetime (regexp)" type="text" default="" />
+        <setting id="video/excludefromscan/regexp" label="excludefromscan (regexp)" type="text" default="" />
+        <setting id="video/excludetvshowsfromscan/regexp" label="excludetvshowsfromscan (regexp)" type="text" default="" />
+        <setting id="video/excludefromlisting/regexp" label="excludefromlisting (regexp)" type="text" default="" />
+        <setting type="sep" />
+        <setting id="video/cleanstrings#action" label="cleanstrings" type="enum" default="0" values="|append|prepend">
+            <enummap key="1" value="append" />
+            <enummap key="2" value="prepend" />
+        </setting>
+        <setting id="video/cleanstrings/regexp$0" label="1." type="text" default="" />
+        <setting id="video/cleanstrings/regexp$1" label="2." type="text" default="" />
     </category>
     <category id="audio" label="30360">
         <setting id="headroom" label="headroom" type="slider" default="0" range="0,6,12" option="int" />
@@ -87,6 +120,13 @@
         </setting>
         <setting id="limiterhold" label="limiterhold" type="number" default="0" />
         <setting id="limiterrelease" label="limiterrelease" type="number" default="0" />
+    </category>
+    <category id="musiclibrary" label="30380" root="true">
+        <setting id="musicextensions/add" label="musicextensions - add" type="text" default="" />
+        <setting id="musicextensions/remove" label="musicextensions - remove" type="text" default="" />
+        <setting type="sep" />
+        <setting id="cddbaddress" label="cddbaddress" type="text" default="" />
+        <setting id="songinfoduration" label="songinfoduration" type="number" default="10" />
     </category>
     <category id="epg" label="30230">
         <setting id="updatecheckinterval" label="updatecheckinterval" type="number" default="300" />
@@ -176,17 +216,8 @@
         <setting id="glrectanglehack" label="glrectanglehack" type="text" default="" />
         <setting id="alwaysontop" label="alwaysontop" type="text" default="" />
         <setting id="minimizetotray" label="minimizetotray" type="bool" default="false" />
-        <setting type="sep" label="30261"/>
-        <setting id="videoextensions/add" label="videoextensions - add" type="text" default="" />
-        <setting id="videoextensions/remove" label="videoextensions - remove" type="text" default="" />
-        <setting type="sep" label="30262"/>
-        <setting id="discstubextensions/add" label="discstubextensions - add" type="text" default="" />
-        <setting id="discstubextensions/remove" label="discstubextensions - remove" type="text" default="" />
         <setting type="sep" label="30228"/>
         <setting id="jsonrpc/compactoutput" label="jsonrpc - compactoutput" type="bool" default="false" />
         <setting id="jsonrpc/tcpport" label="jsonrpc - tcpport" type="number" default="9999" />
-        <setting type="sep"/>
-        <setting id="tvmultipartmatching" label="tvmultipartmatching (regexp)" type="text" default="" />
-        <setting id="trailermatching/regexp" label="trailermatching (regexp)" type="text" default="" />
     </category>
 </settings>

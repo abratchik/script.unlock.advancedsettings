@@ -156,6 +156,10 @@ msgctxt "#30360"
 msgid "Audio"
 msgstr "Audio"
 
+msgctxt "#30380"
+msgid "Audio Library"
+msgstr "Audio Library"
+
 msgctxt "#30400"
 msgid "EDL"
 msgstr "EDL"
