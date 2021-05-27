@@ -175,3 +175,15 @@ msgstr "Настройки сети"
 msgctxt "#30650"
 msgid "Photo"
 msgstr "Фотографии"
+
+msgctxt "#30800"
+msgid "Unable to parse"
+msgstr "Ошибка формата XML в"
+
+msgctxt "#30801"
+msgid "The file 'advancedsettings.xml' will be overwritten, continue?"
+msgstr "Файл 'advancedsettings.xml' будет перезаписан, продолжить?"
+
+msgctxt "#30802"
+msgid "Please restart Kodi for settings to take effect"
+msgstr "Пожалуйста перезапустите Kodi для активации новых настроек"
