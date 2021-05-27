@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.unlock.advancedsettings"
        name="Unlock Kodi Advanced Settings"
-       version="1.0.0"
+       version="1.0.1"
        provider-name="Alex Bratchik">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
@@ -26,6 +26,7 @@
         <assets>
             <icon>icon.png</icon>
             <fanart>fanart.jpg</fanart>
+            <screenshot>resources/screenshot-01.jpg</screenshot>
         </assets>
     </extension>
 </addon>
