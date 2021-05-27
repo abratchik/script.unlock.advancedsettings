@@ -171,3 +171,7 @@ msgstr "Video Library"
 msgctxt "#30600"
 msgid "Network"
 msgstr "Network"
+
+msgctxt "#30650"
+msgid "Photo"
+msgstr "Photo"

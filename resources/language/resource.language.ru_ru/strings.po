@@ -171,3 +171,7 @@ msgstr "Видеоколлекция"
 msgctxt "#30600"
 msgid "Network"
 msgstr "Настройки сети"
+
+msgctxt "#30650"
+msgid "Photo"
+msgstr "Фотографии"

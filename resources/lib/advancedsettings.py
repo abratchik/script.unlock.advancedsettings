@@ -3,6 +3,7 @@
 # Author: Alex Bratchik
 # Created on: 20.05.2021
 # License: GPL v.3 https://www.gnu.org/copyleft/gpl.html
+
 import os
 import xml.etree.ElementTree as ET
 import xml.dom.minidom as minidom
@@ -35,7 +36,7 @@ class AdvancedSettings():
     def unlock(self):
 
         self._load()
-        print("dialog returned %s" % self.addon.openSettings(self.id))
+        self.addon.openSettings(self.id)
         self._save()
 
     def _load(self):
@@ -239,10 +240,10 @@ class AdvancedSettings():
 
     @staticmethod
     def _load_xml_from_file(filename):
-        try:
+        if xbmcvfs.exists(filename):
             tree = ET.parse(filename)
             return tree.getroot()
-        except:
+        else:
             return None
 
     @staticmethod

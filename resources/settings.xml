@@ -36,8 +36,8 @@
         <setting id="playlistasfolders" label="playlistasfolders" type="bool" default="false" />
         <setting id="playlistretries" label="playlistretries" type="number" default="100" />
         <setting id="playlisttimeout" label="playlisttimeout" type="number" default="20" />
-        <setting id="<sorttokens>/token" label="sorttokens - token" type="text" default="" />
-        <setting id="<sorttokens>/token#separators" label="sorttokens - separators" type="text" default="" />
+        <setting id="sorttokens/token" label="sorttokens - token" type="text" default="" />
+        <setting id="sorttokens/token#separators" label="sorttokens - separators" type="text" default="" />
         <setting type="sep"/>
         <setting id="videoextensions/add" label="videoextensions - add" type="text" default="" />
         <setting id="videoextensions/remove" label="videoextensions - remove" type="text" default="" />
@@ -102,12 +102,26 @@
         </setting>
         <setting id="video/cleanstrings/regexp$0" label="1." type="text" default="" />
         <setting id="video/cleanstrings/regexp$1" label="2." type="text" default="" />
+        <setting type="sep" />
+        <setting id="videodatabase/type" label="videodatabase - type" type="enum" default="0" values="sqlite3|mysql">
+            <enummap key="0" value="sqlite3" />
+            <enummap key="1" value="mysql" />
+        </setting>
+        <setting id="videodatabase/host" label="videodatabase - host" type="text" default="" />
+        <setting id="videodatabase/port" label="videodatabase - port" type="number" default="9999" />
+        <setting id="videodatabase/name" label="videodatabase - name" type="text" default="" />
+        <setting id="videodatabase/user" label="videodatabase - user" type="text" default="" />
+        <setting id="videodatabase/pass" label="videodatabase - pass" type="text" default="" option="hidden"/>
+        <setting id="videodatabase/compression" label="videodatabase - compression" type="bool" default="false" />
+        <setting id="videodatabase/key" label="videodatabase - key" type="text" default="" />
+        <setting id="videodatabase/cert" label="videodatabase - cert" type="text" default="" />
+        <setting id="videodatabase/ca" label="videodatabase - ca" type="text" default="" />
+        <setting id="videodatabase/capath" label="videodatabase - capath" type="text" default="" />
+        <setting id="videodatabase/ciphers" label="videodatabase - ciphers" type="text" default="" />
     </category>
     <category id="audio" label="30360">
         <setting id="headroom" label="headroom" type="slider" default="0" range="0,6,12" option="int" />
         <setting id="defaultplayer" label="defaultplayer" type="text" default="VideoPlayer"/>
-        <setting id="excludefromscan/regexp" label="excludefromscan (regexp)" type="text" default="" />
-        <setting id="excludefromlisting/regexp" label="excludefromlisting (regexp)" type="text" default="" />
         <setting id="ac3downmixgain" label="ac3downmixgain" type="number" default="12" />
         <setting id="usetimeseeking" label="usetimeseeking" type="bool" default="true"  />
         <setting id="timeseekforwardbig" label="timeseekforwardbig" type="number" default="600" />
@@ -122,11 +136,79 @@
         <setting id="limiterrelease" label="limiterrelease" type="number" default="0" />
     </category>
     <category id="musiclibrary" label="30380" root="true">
+        <setting id="audio/excludefromscan/regexp" label="excludefromscan (regexp)" type="text" default="" />
+        <setting id="audio/excludefromlisting/regexp" label="excludefromlisting (regexp)" type="text" default="" />
         <setting id="musicextensions/add" label="musicextensions - add" type="text" default="" />
         <setting id="musicextensions/remove" label="musicextensions - remove" type="text" default="" />
         <setting type="sep" />
         <setting id="cddbaddress" label="cddbaddress" type="text" default="" />
         <setting id="songinfoduration" label="songinfoduration" type="number" default="10" />
+        <setting type="sep" />
+        <setting id="musiclibrary/allitemsonbottom" label="allitemsonbottom" type="bool" default="true"  />
+        <setting id="musiclibrary/cleanonupdate" label="cleanonupdate" type="bool" default="false"  />
+        <setting id="musiclibrary/recentlyaddeditems" label="recentlyaddeditems" type="number" default="25"  />
+        <setting id="musiclibrary/albumformat" label="albumformat" type="text" default="%B"  />
+        <setting id="musiclibrary/prioritiseapetags" label="prioritiseapetags" type="bool" default="false"  />
+        <setting id="musiclibrary/itemseparator" label="itemseparator" type="text" default=" / "  />
+        <setting id="musiclibrary/dateadded" label="dateadded" type="enum" default="1" values="0|1|2" />
+        <setting id="musiclibrary/useisodates" label="useisodates" type="bool" default="false"  />
+        <setting type="sep" />
+        <setting id="musicfilenamefilters/filter" label="musicfilenamefilter" type="text" default="" />
+        <setting type="sep" />
+        <setting id="musiclibrary/artistseparators/separator$0" label="artistseparator1" type="text" default="" />
+        <setting id="musiclibrary/artistseparators/separator$1" label="artistseparator2" type="text" default="" />
+        <setting id="musiclibrary/artistseparators/separator$2" label="artistseparator3" type="text" default="" />
+        <setting id="musiclibrary/artistseparators/separator$3" label="artistseparator4" type="text" default="" />
+        <setting id="musiclibrary/artistseparators/separator$4" label="artistseparator5" type="text" default="" />
+        <setting id="musiclibrary/artistseparators/separator$5" label="artistseparator6" type="text" default="" />
+        <setting id="musiclibrary/artistseparators/separator$6" label="artistseparator7" type="text" default="" />
+        <setting id="musiclibrary/artistseparators/separator$7" label="artistseparator8" type="text" default="" />
+        <setting type="sep" />
+        <setting id="musicdatabase/type" label="musicdatabase - type" type="enum" default="0" values="sqlite3|mysql">
+            <enummap key="0" value="sqlite3" />
+            <enummap key="1" value="mysql" />
+        </setting>
+        <setting id="musicdatabase/host" label="musicdatabase - host" type="text" default="" />
+        <setting id="musicdatabase/port" label="musicdatabase - port" type="number" default="9999" />
+        <setting id="musicdatabase/name" label="musicdatabase - name" type="text" default="" />
+        <setting id="musicdatabase/user" label="musicdatabase - user" type="text" default="" />
+        <setting id="musicdatabase/pass" label="musicdatabase - pass" type="text" default="" option="hidden"/>
+        <setting id="musicdatabase/compression" label="musicdatabase - compression" type="bool" default="false" />
+        <setting id="musicdatabase/key" label="musicdatabase - key" type="text" default="" />
+        <setting id="musicdatabase/cert" label="musicdatabase - cert" type="text" default="" />
+        <setting id="musicdatabase/ca" label="musicdatabase - ca" type="text" default="" />
+        <setting id="musicdatabase/capath" label="musicdatabase - capath" type="text" default="" />
+        <setting id="musicdatabase/ciphers" label="musicdatabase - ciphers" type="text" default="" />
+    </category>
+    <category id="photo" label="30650" root="true">
+        <setting id="pictureextensions/add" label="pictureextensions - add" type="text" default="" />
+        <setting id="pictureextensions/remove" label="pictureextensions - remove" type="text" default="" />
+        <setting type="sep" />
+        <setting id="pictureexcludes/regexp$0" label="pictureexcludes1" type="text" default="" />
+        <setting id="pictureexcludes/regexp$1" label="pictureexcludes2" type="text" default="" />
+        <setting id="pictureexcludes/regexp$2" label="pictureexcludes3" type="text" default="" />
+        <setting id="pictureexcludes/regexp$3" label="pictureexcludes4" type="text" default="" />
+        <setting type="sep" />
+        <setting id="slideshow/panamount" label="slideshow - panamount" type="slider" default="2.5" option="percent"/>
+        <setting id="slideshow/zoomamount" label="slideshow - zoomamount" type="slider" default="5.0" option="percent"/>
+        <setting id="slideshow/blackbarcompensation" label="blackbarcompensation" type="number" default="20" />
+    </category>
+    <category id="network" label="30600" root="true">
+        <setting id="ftp/remotethumbs" label="ftp - remotethumbs" type="bool" default="true" />
+        <setting id="samba/doscodepage" label="samba - doscodepage" type="text" default="" />
+        <setting id="samba/clienttimeout" label="samba - clienttimeout" type="number" default="10" />
+        <setting id="samba/statfiles" label="samba - statfiles" type="bool" default="true" />
+        <setting id="hosts/entry" label="hosts - ip address" type="ipaddress" default="0.0.0.0" />
+        <setting id="hosts/entry#name" label="hosts - hostname" type="text" default="" />
+        <setting id="network/curlclienttimeout" label="network - curlclienttimeout" type="number" default="10" />
+        <setting id="network/curllowspeedtime" label="network - curllowspeedtime" type="number" default="20" />
+        <setting id="network/curlretries" label="network - curlretries" type="number" default="2" />
+        <setting id="network/httpproxyusername" label="network - httpproxyusername" type="text" default="" />
+        <setting id="network/httpproxypassword" label="network - httpproxypassword" type="text" default="" option="hidden" />
+        <setting id="network/disableipv6" label="network - disableipv6" type="bool" default="false" />
+        <setting id="network/disablehttp2" label="network - disablehttp2" type="bool" default="false" />
+        <setting id="network/nfstimeout" label="network - nfstimeout" type="number" default="5" />
+        <setting id="network/catrustfile" label="network - catrustfile" type="text" default="" />
     </category>
     <category id="epg" label="30230">
         <setting id="updatecheckinterval" label="updatecheckinterval" type="number" default="300" />
@@ -166,23 +248,6 @@
         <setting id="buffermode" label="buffermode" type="enum" default="0" lvalues="30002|30003|30004|30005|30006" />
         <setting id="memorysize" label="memorysize" type="number" default="20971520" />
         <setting id="readfactor" label="readfactor" type="number" default="4" />
-    </category>
-    <category id="network" label="30600" root="true">
-        <setting id="ftp/remotethumbs" label="ftp - remotethumbs" type="bool" default="true" />
-        <setting id="samba/doscodepage" label="samba - doscodepage" type="text" default="" />
-        <setting id="samba/clienttimeout" label="samba - clienttimeout" type="number" default="10" />
-        <setting id="samba/statfiles" label="samba - statfiles" type="bool" default="true" />
-        <setting id="hosts/entry" label="hosts - ip address" type="ipaddress" default="0.0.0.0" />
-        <setting id="hosts/entry#name" label="hosts - hostname" type="text" default="" />
-        <setting id="network/curlclienttimeout" label="network - curlclienttimeout" type="number" default="10" />
-        <setting id="network/curllowspeedtime" label="network - curllowspeedtime" type="number" default="20" />
-        <setting id="network/curlretries" label="network - curlretries" type="number" default="2" />
-        <setting id="network/httpproxyusername" label="network - httpproxyusername" type="text" default="" />
-        <setting id="network/httpproxypassword" label="network - httpproxypassword" type="text" default="" option="hidden" />
-        <setting id="network/disableipv6" label="network - disableipv6" type="bool" default="false" />
-        <setting id="network/disablehttp2" label="network - disablehttp2" type="bool" default="false" />
-        <setting id="network/nfstimeout" label="network - nfstimeout" type="number" default="5" />
-        <setting id="network/catrustfile" label="network - catrustfile" type="text" default="" />
     </category>
     <category id="system" label="30200" root="true">
         <setting id="loglevel" label="loglevel" type="enum" default="0" lvalues="30102|30103|30104|30105|30106">
