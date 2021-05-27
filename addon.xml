@@ -4,7 +4,7 @@
        version="1.0.0"
        provider-name="Alex Bratchik">
     <requires>
-        <import addon="xbmc.python" version="3.0.0"/>
+        <import addon="xbmc.python" version="2.1.0"/>
     </requires>
     <extension point="xbmc.python.script" library="main.py">
         <provides>executable</provides>

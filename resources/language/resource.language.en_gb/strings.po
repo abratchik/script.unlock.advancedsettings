@@ -175,3 +175,15 @@ msgstr "Network"
 msgctxt "#30650"
 msgid "Photo"
 msgstr "Photo"
+
+msgctxt "#30800"
+msgid "Unable to parse"
+msgstr "Unable to parse"
+
+msgctxt "#30801"
+msgid "The file 'advancedsettings.xml' will be overwritten, continue?"
+msgstr "The file 'advancedsettings.xml' will be overwritten, continue?"
+
+msgctxt "#30802"
+msgid "Please restart Kodi for settings to take effect"
+msgstr "Please restart Kodi for settings to take effect"

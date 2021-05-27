@@ -9,6 +9,7 @@ import xml.etree.ElementTree as ET
 import xml.dom.minidom as minidom
 
 import xbmc
+import xbmcgui
 import xbmcvfs
 import xbmcaddon
 
@@ -22,22 +23,38 @@ class AdvancedSettings():
         self.id = "script.unlock.advancedsettings"
         self.addon = xbmcaddon.Addon(self.id)
         self.path = self.addon.getAddonInfo('path')
-        self.ads_path = xbmcvfs.translatePath("special://userdata")
-        self.data_path = xbmcvfs.translatePath(self.addon.getAddonInfo('profile'))
+        self.ads_path = xbmc.translatePath("special://userdata")
+        self.data_path = xbmc.translatePath(self.addon.getAddonInfo('profile'))
+
+        self.language = self.addon.getLocalizedString
 
         self.ads_file = os.path.join(self.ads_path, ADSFNAME)
         # self.gui_file = os.path.join(self.ads_path, GUIFNAME)
         self.plg_file = os.path.join(os.path.join(self.path, "resources"), PLGFNAME)
 
-        self.adv_settings = self._load_xml_from_file(self.ads_file)
-        # self.gui_settings = self._load_xml_from_file(self.gui_file)
         self.plg_settings = self._load_xml_from_file(self.plg_file)
+        self.adv_settings = None
 
     def unlock(self):
 
+        try:
+            self.adv_settings = self._load_xml_from_file(self.ads_file)
+            # self.gui_settings = self._load_xml_from_file(self.gui_file)
+        except ET.ParseError:
+            xbmcgui.Dialog().notification(self.addon.getAddonInfo("name"),
+                                          "%s %s" % (self.language(30800), ADSFNAME),
+                                          xbmcgui.NOTIFICATION_ERROR, 5000)
+
+
         self._load()
         self.addon.openSettings(self.id)
-        self._save()
+        if xbmcgui.Dialog().yesno(self.addon.getAddonInfo("name"),self.language(30801)):
+            self._save()
+            xbmcgui.Dialog().notification(self.addon.getAddonInfo("name"),
+                                          self.language(30802),
+                                          xbmcgui.NOTIFICATION_INFO, 5000)
+        else:
+            return
 
     def _load(self):
 
