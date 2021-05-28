@@ -3,7 +3,7 @@
 # Author: Alex Bratchik
 # Created on: 20.05.2021
 # License: GPL v.3 https://www.gnu.org/copyleft/gpl.html
-
+import hashlib
 import os
 import xml.etree.ElementTree as ET
 import xml.dom.minidom as minidom
@@ -29,7 +29,7 @@ class AdvancedSettings():
         self.language = self.addon.getLocalizedString
 
         self.ads_file = os.path.join(self.ads_path, ADSFNAME)
-
+        self.sts_file = os.path.join(self.data_path, PLGFNAME)
         self.plg_file = os.path.join(os.path.join(self.path, "resources"), PLGFNAME)
 
         self.plg_settings = None
@@ -50,8 +50,10 @@ class AdvancedSettings():
 
 
         self._load()
+        md5 = self._get_file_hash(self.sts_file)
         self.addon.openSettings(self.id)
-        if xbmcgui.Dialog().yesno(self.addon.getAddonInfo("name"),self.language(30801)):
+        if md5 != self._get_file_hash(self.sts_file) and xbmcgui.Dialog().yesno(self.addon.getAddonInfo("name"),
+                                                                                self.language(30801)):
             self._save()
             xbmcgui.Dialog().notification(self.addon.getAddonInfo("name"),
                                           self.language(30802),
@@ -203,6 +205,13 @@ class AdvancedSettings():
             if len(parent) == 0 and len(parent.attrib) == 0:
                 self._remove_element(rootparent, parentpath)
 
+    @staticmethod
+    def _get_file_hash(filename):
+        if xbmcvfs.exists(filename):
+            with open(filename, 'r+') as f:
+                return hashlib.md5(f.read().encode('utf-8')).hexdigest()
+        else:
+            return ""
 
     @staticmethod
     def _is_root_cat(cat):
@@ -283,4 +292,5 @@ class AdvancedSettings():
             return xbmcvfs.copy(fpath, fpathbak)
         else:
             return False
+
 
