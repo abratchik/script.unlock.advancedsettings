@@ -14,7 +14,7 @@ import xbmcvfs
 import xbmcaddon
 
 ADSFNAME = "advancedsettings.xml"
-GUIFNAME = "guisettings.xml"
+SRCFNAME = "settings.src.xml"
 PLGFNAME = "settings.xml"
 
 
@@ -29,14 +29,17 @@ class AdvancedSettings():
         self.language = self.addon.getLocalizedString
 
         self.ads_file = os.path.join(self.ads_path, ADSFNAME)
-        # self.gui_file = os.path.join(self.ads_path, GUIFNAME)
+
         self.plg_file = os.path.join(os.path.join(self.path, "resources"), PLGFNAME)
 
-        self.plg_settings = self._load_xml_from_file(self.plg_file)
+        self.plg_settings = None
         self.adv_settings = None
 
     def unlock(self):
+        srcfname = os.path.join(os.path.join(self.path, "resources"), SRCFNAME)
+        xbmcvfs.copy(srcfname, self.plg_file)
 
+        self.plg_settings = self._load_xml_from_file(self.plg_file)
         try:
             self.adv_settings = self._load_xml_from_file(self.ads_file)
             # self.gui_settings = self._load_xml_from_file(self.gui_file)
@@ -53,8 +56,7 @@ class AdvancedSettings():
             xbmcgui.Dialog().notification(self.addon.getAddonInfo("name"),
                                           self.language(30802),
                                           xbmcgui.NOTIFICATION_INFO, 5000)
-        else:
-            return
+        xbmcvfs.delete(self.plg_file)
 
     def _load(self):
 

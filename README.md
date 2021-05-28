@@ -25,10 +25,6 @@ Editing **advancedsettings.xml** is simple - just run the plugin. If you
 already have advancedsettings.xml defined in your system, it will be loaded
 accordingly.
 
-Please note that this plugin _**should not**_ be configured because this will 
-have no effect on the advancedsettings.xml and you changes will be lost. So 
-you need to "Run" or "Open" the plugin rather than "Configure".
-
 Once you complete editing changes and save them, advancedsettings.xml will be
 updated (or created if it was not present in your system) in the **userddata**
 folder. Old advancedsettings.xml file will be stored with **.bak** extension

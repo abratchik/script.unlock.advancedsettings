@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="script.unlock.advancedsettings"
        name="Unlock Kodi Advanced Settings"
-       version="1.0.1"
+       version="1.0.2"
        provider-name="Alex Bratchik">
     <requires>
         <import addon="xbmc.python" version="2.1.0"/>
@@ -10,7 +10,7 @@
         <provides>executable</provides>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <news>First release</news>
+        <news>Fixed bugs</news>
         <platform>all</platform>
         <summary lang="en_GB">Unlock Kodi advanced settings</summary>
         <description lang="en_GB">This plugin allows you to unlock and edit the hidden advanced system settings of Kodi. Please note that Kodi restart is required so that the advanced settings become in effect.</description>
