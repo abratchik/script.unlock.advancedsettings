@@ -48,10 +48,9 @@ class AdvancedSettings():
                                           "%s %s" % (self.language(30800), ADSFNAME),
                                           xbmcgui.NOTIFICATION_ERROR, 5000)
 
-
         self._load()
         md5 = self._get_file_hash(self.sts_file)
-        self.addon.openSettings(self.id)
+        self.addon.openSettings()
         if md5 != self._get_file_hash(self.sts_file) and xbmcgui.Dialog().yesno(self.addon.getAddonInfo("name"),
                                                                                 self.language(30801)):
             self._save()
@@ -88,7 +87,7 @@ class AdvancedSettings():
 
     def _save_adv_setting_value(self, cat, s, value):
         xbmc.log("Category %s, setting %s" % (cat.attrib['id'], s.attrib['id']), xbmc.LOGDEBUG)
-        default = s.attrib['default'] if 'default' in s.attrib else ""
+        default = s.attrib.get('default', "")
 
         section_tag = cat.attrib['id']
         section = self.adv_settings if self._is_root_cat(cat) else self.adv_settings.find(section_tag)
@@ -116,20 +115,19 @@ class AdvancedSettings():
             setting = self._create_element(section, setting_tag)
             # ET.SubElement(section, setting_tag)
 
-
         self._write_setting_value(setting, s, self._encode_value(value, s))
 
     def _read_adv_setting_value(self, cat, s):
         xbmc.log("Category %s, setting %s" % (cat.attrib['id'], s.attrib['id']), xbmc.LOGDEBUG)
         if self.adv_settings is None:
             xbmc.log("%s not found" % ADSFNAME, xbmc.LOGDEBUG)
-            return self._get_gui_setting_value(cat, s)
+            return s.attrib.get('default', "")
 
         section_tag = cat.attrib['id']
         section = self.adv_settings if self._is_root_cat(cat) else self.adv_settings.find(section_tag)
         if section is None:
             xbmc.log("Section %s not found" % section_tag, xbmc.LOGDEBUG)
-            return self._get_gui_setting_value(cat, s)
+            return s.attrib.get('default', "")
 
         setting = self._lookup_element(section, s.attrib['id'].partition("#")[0])
         # section.find(s.attrib['id'].partition("#")[0])
@@ -137,16 +135,7 @@ class AdvancedSettings():
             return self._decode_value(self._read_setting_value(setting, s), s)
         else:
             xbmc.log("Setting %s not found" % s.attrib['id'], xbmc.LOGDEBUG)
-            return self._get_gui_setting_value(cat, s)
-
-    def _get_gui_setting_value(self, cat, s):
-        # setting_id = "%s.%s" % (cat.attrib['id'], s.attrib['id'])
-        default = s.attrib['default'] if 'default' in s.attrib else ""
-        # setting = self.gui_settings.find(".//setting[@id='%s']" % setting_id)
-        #if not (setting is None):
-        #    return setting.text
-        # else:
-        return default
+            return s.attrib.get('default', "")
 
     def _lookup_element(self, parent, path):
         if parent is None:
@@ -215,7 +204,7 @@ class AdvancedSettings():
 
     @staticmethod
     def _is_root_cat(cat):
-        return 'root' in cat.attrib and cat.attrib['root'] == "true"
+        return cat.attrib.get('root', "false") == "true"
 
     @staticmethod
     def _decode_value(value, s):
@@ -247,7 +236,7 @@ class AdvancedSettings():
             if idc[1] in setting.attrib:
                 return setting.attrib[idc[1]]
             else:
-                return s.attrib['default'] if 'default' in s.attrib else ""
+                return s.attrib.get('default', "")
         else:
             return setting.text
 
@@ -282,7 +271,6 @@ class AdvancedSettings():
         with open(output_xml, "w") as file_out:
             file_out.write(xml_string)
 
-
     @staticmethod
     def _backup_file(fpath):
         if xbmcvfs.exists(fpath):
@@ -292,5 +280,3 @@ class AdvancedSettings():
             return xbmcvfs.copy(fpath, fpathbak)
         else:
             return False
-
-
